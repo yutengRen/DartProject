@@ -1,6 +1,5 @@
 // pages/gamestar/gamestar.js
 const app = getApp();
-var token = wx.getStorageSync('token')
 Page({
 
   /**
@@ -17,12 +16,36 @@ Page({
     })
   },
 
+  // initial() { //开始游戏
+  //   wx.request({
+  //     url: app.globalData.url + '/wx/dartGame/start',
+  //     data: {
+  //       goodsId: this.data.goodsId,
+  //       deviceId: 1,
+  //     },
+  //     header: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: token
+  //     },
+  //     method: 'POST',
+  //     dataType: 'json',
+  //     responseType: 'text',
+  //     success: (res) => {
+  //       console.log(res)
+  //     },
+  //     fail: (res) => {},
+  //     complete: function(res) {},
+  //   })
+  // },
+
+
   initial() { //开始游戏
+    const token = wx.getStorageSync('token')
     wx.request({
-      url: app.globalData.url + '/wx/dartGame/start',
+      url: app.globalData.url + '/wx/pay/createOrder',
       data: {
         goodsId: this.data.goodsId,
-        deviceId: 1,
+        deviceId: this.data.deviceId,
       },
       header: {
         'Content-Type': 'application/json',
@@ -34,8 +57,8 @@ Page({
       success: (res) => {
         console.log(res)
       },
-      fail: (res) => {},
-      complete: function(res) {},
+      fail: (res) => { },
+      complete: function (res) { },
     })
   },
 
@@ -43,9 +66,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
     this.setData({
       goodsId: options.goodsId,
-      deviceId: ""
+      deviceId: options.deviceId
     })
     this.initial();
 

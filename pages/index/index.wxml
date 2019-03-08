@@ -27,7 +27,7 @@
           </view>
         </view>
         <view class="start">
-          <navigator url="/pages/gamestar/gamestar?goodsId={{item.goodsId}}" hover-class='none'>
+          <navigator url="/pages/gamestar/gamestar?goodsId={{item.goodsId}}&deviceId={{code.deviceId}}" hover-class='none'>
             开始游戏
           </navigator>
         </view>
