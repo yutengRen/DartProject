@@ -1,0 +1,37 @@
+<!--pages/start/start.wxml-->
+<view class="container">
+  <view wx:if="{{Array.length==null? true:false}}" style="text-align:center;;margin:100px auto 0;font-size:36rpx;color:#666">您还没有选择的游戏 ! ! !</view>
+  <checkbox-group bindchange="checkboxChange">
+    <label class="list" wx:for="{{Array}}" wx:key="{{index}}">
+      <view class="left">
+        <view>用户名: {{item.nickname}}</view>
+        <view>游戏名：{{item.gameName}}</view>
+        <view>机器编号：{{item.machineNum}}</view>
+        <view>状态：
+          <text wx:if="{{item.flag==0}}">准备中</text>
+          <text wx:if="{{item.flag==1}}">已开始</text>
+          <text wx:if="{{item.flag==2}}">已结束</text>
+        </view>
+      </view>
+      <view class="right">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}" />
+      </view>
+    </label>
+  </checkbox-group>
+  <view class="gamesFixed">
+    <view class="del" bindtap="del">
+      <view class="icon">
+        <image src="/images/del.png"></image>
+      </view>
+      <view>删除</view>
+    </view>
+    <view class="refresh" bindtap='refresh'>
+      <view class="icon">
+        <image src="/images/refresh.png"></image>
+      </view>
+      <view>刷新</view>
+    </view>
+    <view class="start" bindtap='startGames'>开始游戏</view>
+  </view>
+</view>
+<view id="bg"></view>

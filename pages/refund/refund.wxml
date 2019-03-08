@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="topText">押金全额退款{{text}}</view>
+  <view class="box" wx:if="{{flag}}">
+      <text class="cause">原因</text>
+      <text>镖具未返还齐全</text>
+  </view>
+  <view class="btna" bindtap='btna' hover-class='active' wx:if="{{flagF}}">继续还镖</view>
+  <view class="btn" bindtap='btn' hover-class='active' wx:if="{{flagT}}">返回首页</view>
+</view>
+
+<view id="bg"></view>

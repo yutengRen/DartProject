@@ -1,0 +1,38 @@
+/* pages/my/price/recharge/recharge.wxss */
+
+.main view {
+  display: inline-block;
+  width: 206rpx;
+  height: 138rpx;
+  line-height: 138rpx;
+  text-align: center;
+  color: #000;
+  background: #fafafa;
+  margin-left: 34rpx;
+  margin-top: 25rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.main view.active {
+  background: #e15f34;
+  box-shadow: 0px 0px 6px 0px #e15f34;
+  color: #fff;
+}
+
+.btn {
+  width: 600rpx;
+  height: 78rpx;
+  margin: 700rpx auto 0;
+  line-height: 78rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-top-right-radius: 160rpx;
+  border-top-left-radius: 160rpx;
+  border-bottom-right-radius: 160rpx;
+  border-bottom-left-radius: 160rpx;
+  background:#e15f34;
+  box-shadow: 0px 0px 4px 0px #e15f34;
+}

@@ -1,0 +1,65 @@
+<import src="../template/tabbar" />
+<view class="layout">
+  <view class="Top">
+    <view class="position" bindtap='selectLocation'>
+      <view class="icon">
+        <image src="/images/location.png"></image>
+      </view>
+      <view class="address">{{location}}</view>
+      <view class="icons">
+        <image src="/images/down.png"></image>
+      </view>
+    </view>
+    <view class="scroll">
+      <scroll-view scroll-x="true" style="height:100%;">
+        <block wx:for="{{array}}" wx:key="{{index}}">
+          <view class="list {{index == '0'? 'bgColor':''}}" bindtap='btnSelect' data-index="0">
+            <view class="list_plate">
+              <image src="/images/feibiao.png" wx:if="{{index == 0? false:true}}"></image>
+              <image src="/images/feibiao1.png" wx:else></image>
+              <view class="txt {{index == '0'? 'style':''}}">{{item.msg}}</view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="main">
+    <block wx:for="{{arrayT}}" wx:key="{{index}}">
+    <navigator url="/pages/venue/venue?id={{item.id}}&lng={{item.lng}}&lat={{item.lat}}" hover-class='none'>
+      <view class="mainList">
+        <!-- <view class="swiper">
+            <swiper>
+              <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+                <swiper-item>
+                  <image mode="aspectFill" src="{{item}}" class="slide-image" />
+                </swiper-item>
+              </block>
+            </swiper>
+            <view class="popularity">
+              <view style="font-size:20rpx;">人气</view>
+              <view style="font-weight:600;font-size:32rpx">1K</view>
+            </view>
+            <view class="consume">
+              <view style="font-size:20rpx;">人均</view>
+              <view style="font-weight:600;font-size:32rpx">￥30</view>
+            </view>
+          </view> -->
+
+        <view class="content">
+          <view class="toponymy">{{item.name}}</view>
+          <view class="txts">{{item.body}}</view>
+          <view class="address">{{item.address}}， {{item.distance}}km</view>
+        </view>
+        <view class="boder"></view>
+      </view>
+    </navigator>
+    </block>
+  </view>
+</view>
+
+<view class="locationHide" bindtap='anewLocation' hidden="{{!locationHide}}"> 获取定位 </view>
+
+<view class="tabbar">
+  <template is="nav" data="{{style:'0'}}" />
+</view>

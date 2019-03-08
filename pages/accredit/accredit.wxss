@@ -1,0 +1,57 @@
+/* pages/accredit/accredit.wxss */
+.container {
+  padding: 0 30rpx;
+}
+
+.container .image {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 100rpx auto 30rpx;
+}
+
+.container .image image {
+  width: 100%;
+  height: 100%;
+}
+
+.container .text {
+  text-align: center;
+}
+
+.container .border {
+  margin: 40rpx 0;
+  border-top: 1px solid #ccc;
+}
+
+.container .list_text {
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+}
+
+.container .list_texts {
+  display: flex;
+  align-items: center;
+  color: #7d7d7d;
+  font-size:30rpx;
+}
+
+.container .list_texts view {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #666;
+  margin-left: 12rpx;
+}
+
+.container .btn {
+  margin: 100rpx auto 0;
+}
+
+.container .btn button {
+  width: 660rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: #1aac19;
+  color: #fff;
+  font-size: 30rpx;
+}

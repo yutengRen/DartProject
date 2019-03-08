@@ -1,0 +1,54 @@
+/* pages/data/data.wxss */
+
+.containers {
+  color: #fff;
+  margin-top: 100rpx;
+}
+
+.containers .box_first {
+  margin: 30rpx auto;
+  display: flex;
+  justify-content: center;
+}
+
+.containers .box_first .text {
+  color: #1966ff;
+  flex: 1;
+  text-align: right;
+}
+
+.containers .box_first .texts {
+  flex: 1;
+}
+
+.btn {
+  width: 670rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #1966ff;
+  color: #fff;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  font-size: 30rpx;
+  text-align: center;
+  margin: 300rpx auto 0;
+  box-shadow: 0px 0px 3px 0px #1966ff;
+}
+
+.btns {
+  width: 670rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  border:1px solid #1966ff;
+  color: #fff;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  font-size: 30rpx;
+  text-align: center;
+  margin:30rpx auto 0;
+  box-shadow: 0px 0px 3px 0px #1966ff;
+}

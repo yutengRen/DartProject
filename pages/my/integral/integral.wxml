@@ -1,0 +1,13 @@
+<!--pages/my/integral/integral.wxml-->
+<view class="layout">
+  <view class="box">
+    <view class="icon">
+      <image src="/images/jifen1.png"></image>
+    </view>
+    <view class="txts">{{array.point}}</view>
+    <view style="font-size:30rpx;">当前积分</view>
+  </view>
+</view>
+
+<view class="bgc">
+</view>

@@ -1,0 +1,22 @@
+<view class="layout">
+  <view class="Box">
+    <view class="head">
+      <image mode='aspectFill' src="https://wx.qlogo.cn/mmopen/vi_32/LbS7VluecU9ibZPAG92WGQ3janWQUauJsxL9sRuYaBstMNKkd8TftE6zW5mICLJ24btsddHDcspFoV4c0PkVIKA/132"></image>
+    </view>
+    <view class="code">
+      <view style="font-size:40rpx;">￥{{array.balance}}</view>
+      <view style="font-size:30rpx;">可用余额</view>
+    </view>
+    <navigator url="/pages/my/price/recharge/recharge" hover-class='none'>
+      <view class="box">
+        <view class="left">
+          去充值
+        </view>
+        <view class="right" style="font-size:34rpx;">
+          >
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view style="font-weight:600;padding:50rpx 0 0 30rpx; ">明细</view>
+</view>

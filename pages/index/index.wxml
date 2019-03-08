@@ -1,0 +1,50 @@
+<!--pages/index/index.wxml-->
+<view class="layout">
+  <view class="message">
+    <view class="message_List">
+      <view class="head">
+        <image mode="aspectFill" src="{{userInfo.wxHeadImg}}"></image>
+      </view>
+      <view class="messageDetails">
+        <view class="name">{{userInfo.wxName}}</view>
+        <view class="data">
+          <image src="/images/price.png"></image>账户余额: {{userInfo.balanceYuan}}</view>
+      </view>
+      <view class="code">
+        <image src="/images/machine.png"></image>机器码{{code.code}}</view>
+    </view>
+  </view>
+  <view class="selectList">
+    <block wx:for="{{array}}" wx:key="{{index}}">
+      <view class="box">
+        <view class="gameName">
+          <view class="name">{{item.title}}</view>
+          <view class="data">
+            <view class="txt">游戏金额 :{{item.priceYuan}}元 ，押金 :{{item.total}}元</view>
+            <navigator url="/pages/rule/rule?goodsId={{item.goodsId}}" hover-class='none'>
+              <view class="rule">游戏规则</view>
+            </navigator>
+          </view>
+        </view>
+        <view class="start">
+          <navigator url="/pages/gamestar/gamestar?goodsId={{item.goodsId}}" hover-class='none'>
+            开始游戏
+          </navigator>
+        </view>
+
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="loading" hidden="{{true}}">
+
+  <view class="Box">
+    <view class="load">
+      <image src="/images/loading.gif"></image>
+    </view>
+    <view style="color:#000;text-align:center;margin-top:20rpx;">加载中</view>
+  </view>
+</view>
+
+<view id="bg"></view>

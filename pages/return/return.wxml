@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="swiper">
+    <image src="../../images/301.png"></image>
+  </view>
+
+  <view class="text"><text>*</text> 游戏结束后请将飞镖放回飞镖盒，点击下面按钮退回押金</view>
+  <view class="btn" bindtap='btn' hover-class='active'>已还镖</view>
+</view>
+<view id="bg"></view>

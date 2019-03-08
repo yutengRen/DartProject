@@ -1,0 +1,46 @@
+<!--pages/venue/venue.wxml-->
+<view class="layout">
+  <view class="main">
+    <view class="txtss">
+      {{array.name}}
+    </view>
+    <view class="list">
+      <view class="left">
+        <view class="icon">
+          <image src="/images/fb.png"></image>
+        </view>
+      </view>
+      <view class="right">
+        <view class="popularity">
+          <view style="font-size:20rpx;">人气</view>
+          <view style="font-weight:600;font-size:32rpx">1K</view>
+        </view>
+        <view class="consume">
+          <view style="font-size:20rpx;">人均</view>
+          <view style="font-weight:600;font-size:32rpx">￥30</view>
+        </view>
+      </view>
+    </view>
+    <view class="message">
+      <view class="left">
+        <view class="address"> {{array.address}}</view>
+        <view class="distance"> 距离你{{array.distance}}km</view>
+      </view>
+      <view class="right" bindtap='dial'>
+        <image src="/images/phone.png"></image>
+      </view>
+    </view>
+    <view class="describe">
+      <view>{{array.body}}</view>
+      <view style="padding-top:8rpx;">交通方式：地铁</view>
+    </view>
+    <view class="label">
+      <view class="txts">{{array.remark}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="button" bindtap='btn'>
+  <image src="/images/code.png"></image>
+  扫码
+</view>

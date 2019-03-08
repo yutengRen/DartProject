@@ -1,0 +1,91 @@
+.container {
+  margin-top:60rpx;
+  color: #fff;
+}
+
+.container .topText {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.container .topText .left {
+  width: 56rpx;
+  height: 2rpx;
+  background: #1966ff;
+}
+
+.container .topText .center {
+  font-size: 32rpx;
+  color: #fff;
+  margin-bottom: 6rpx;
+}
+
+.container .topText .right {
+  flex: 1;
+  height: 2rpx;
+  background: #1966ff;
+}
+
+.container form .section {
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.container form .section .section__title {
+  width: 177rpx;
+  text-align: right;
+  color:#1966ff;
+}
+
+.container form .section .input {
+  height: 86rpx;
+  line-height: 86rpx;
+  width:480rpx;
+  border: 1px solid #1966ff;
+  margin-left: 30rpx;
+  border-radius: 3px;
+  padding-left:20rpx;
+  display:flex;
+  align-items:center;
+}
+
+.container form .section .input picker{
+  height:100%;
+  flex:1;
+}
+
+.container form .section .input picker .picker{
+  height:100%;
+}
+
+.container form .btn-area button {
+  width: 670rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  background: #1966ff;
+  margin-top: 100rpx;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  color:#fff;
+}
+
+.to_start{
+  width: 670rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  border:1px solid #1966ff;
+  margin:30rpx auto;
+  text-align:center;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  color:#1966ff;
+}

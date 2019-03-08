@@ -1,0 +1,14 @@
+<!--pages/rule/rule.wxml-->
+<view class="layout">
+  <view class="content">
+    <view class="txt">
+      <scroll-view style="height:100%;" scroll-y="true">
+        <view class="txts">{{array.body}}</view>
+        <view class="txtss">{{array.rule}}</view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+
+
+<view id="bg"></view>

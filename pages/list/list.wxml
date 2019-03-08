@@ -1,0 +1,45 @@
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section section_gap">
+      <view class="section__title">请选择种类</view>
+      <view class="input">
+        <picker name="picker" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key='typeName'>
+          <view class="picker">{{array[index].typeName}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">请选择游戏</view>
+      <view class="input">
+        <picker name="pickerT" bindchange="bindPickerChangeT" value="{{indexT}}" range="{{arrayT}}" range-key='gameName'>
+          <view class="picker">{{arrayT[indexT].gameName}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">请选择机器</view>
+      <view class="input">
+        <picker name="pickerThird" bindchange="bindPickerChangeThird" value="{{indexThird}}" range="{{arrayThird}}" range-key='machineNum'>
+          <view class="picker">{{arrayThird[indexThird].machineNum}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">结镖设置</view>
+      <view class="input">
+        无限制
+      </view>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">立即提交</button>
+    </view>
+  </form>
+</view>
+
+<navigator url="/pages/start/start" hover-class='none' wx:if="{{flag}}">
+  <view class="to_start">前往开始游戏页面 </view>
+</navigator>
+<view id="bg"></view>

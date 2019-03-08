@@ -1,0 +1,170 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wxd6cf371dbe9f5906",
+	"projectname": "%E5%A5%BD%E4%BA%AB%E7%8E%A9",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 20,
+			"list": [
+				{
+					"id": -1,
+					"name": "登录页面",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择游戏",
+					"pathName": "pages/list/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付",
+					"pathName": "pages/pay/pay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "开始游戏",
+					"pathName": "pages/start/start",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "押金返还",
+					"pathName": "pages/refund/refund",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "还镖",
+					"pathName": "pages/return/return",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "游戏中",
+					"pathName": "pages/continue/continue",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "游戏数据",
+					"pathName": "pages/data/data",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "历史记录",
+					"pathName": "pages/history/history",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "主页",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "游戏进行中",
+					"pathName": "pages/gamestar/gamestar",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "游戏结束",
+					"pathName": "pages/result/result",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "游戏规则",
+					"pathName": "pages/rule/rule",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页index",
+					"pathName": "pages/homeIndex/homeIndex",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "扫码进入",
+					"pathName": "pages/Ewn/Ewn",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/my/register/register",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的钱包",
+					"pathName": "pages/my/price/price",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "充值中心",
+					"pathName": "pages/my/price/recharge/recharge",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的积分",
+					"pathName": "pages/my/integral/integral",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "场馆",
+					"pathName": "pages/venue/venue"
+				}
+			]
+		}
+	}
+}

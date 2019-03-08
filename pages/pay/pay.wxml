@@ -1,0 +1,35 @@
+<!--pages/pay/pay.wxml-->
+<view class="container">
+  <view class="swiper">
+    <image src="../../images/301.png"></image>
+  </view>
+  <view class="List">
+    <view class="first plus">
+      <view class="left">游戏局数</view>
+      <view class="right">
+        <view bindtap='remove'>-</view>
+        {{quantity}}局
+        <view bindtap='add'>+</view>
+      </view>
+    </view>
+    <view class="second plus">
+      <view class="left">单局费用</view>
+      <view class="right">{{price}}元</view>
+    </view>
+    <view class="second plus" style="margin-bottom:0;">
+      <view class="left">收取押金</view>
+      <view class="right">{{cash}}元</view>
+    </view>
+    <view style="margin-bottom:10rpx;">
+      <text style="color:red;margin-left:24rpx;font-size:25rpx;">*押金在游戏结束后全额自动返还</text>
+    </view>
+    <view class="third plus">
+      <view class="left">总费用</view>
+      <view class="right">{{allPrice}}元</view>
+    </view>
+  </view>
+  <view class="btn" bindtap='pay'>
+    <button>微信支付</button>
+  </view>
+</view>
+<view id="bg"></view>

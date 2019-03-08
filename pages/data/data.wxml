@@ -1,0 +1,21 @@
+<!--pages/data/data.wxml-->
+<view class="containers">
+  <view class="box_first">
+    <view class="text">退款金额 :</view>
+    <view class="texts">
+      <text decode='{{true}}'>&nbsp;&nbsp;666</text>
+    </view>
+  </view>
+  <view class="box_first">
+    <view class="text">已还镖数量 :</view>
+    <view class="texts">
+      <text decode='{{true}}'>&nbsp;&nbsp;666</text>
+    </view>
+  </view>
+
+  <view class="btn">返回首页</view>
+
+  <view class="btns">返回首页</view>
+</view>
+
+<view id="bg"></view>

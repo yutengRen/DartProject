@@ -1,0 +1,137 @@
+/* pages/venue/venue.wxss */
+
+.main {
+  padding: 0 30rpx;
+  background: #2b2e2f;
+}
+
+.txtss {
+  color: #fff;
+  font-size: 38rpx;
+  padding: 20rpx 0rpx 35rpx;
+  font-weight: 600;
+}
+
+.list {
+  height: 130rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #404243;
+}
+
+.left .icon {
+  width: 86rpx;
+  height: 90rpx;
+  line-height: 120rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 10rpx;
+}
+
+.left .icon image {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.right {
+  display: flex;
+}
+
+.right .popularity {
+  color: #fff;
+  background: #5fcf90;
+  width: 104rpx;
+  height: 86rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6rpx;
+}
+
+.right .consume {
+  color: #fff;
+  background: #e15f34;
+  width: 104rpx;
+  height: 86rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6rpx;
+  margin-left: 10rpx;
+}
+
+.main .message {
+  height: 130rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #404243;
+  align-items: center;
+  color: #fff;
+}
+
+.main .message .left .address {
+  font-size: 30rpx;
+}
+
+.main .message .left .distance {
+  font-size: 24rpx;
+  color: #8a8a8a;
+  margin-top: 10rpx;
+}
+
+.main .message .right  image {
+  width: 56rpx;
+  height: 56rpx;
+  display: block;
+}
+
+.describe{
+  padding:30rpx 0;
+  border-bottom:1px solid #404243;
+  color:#8b8b8b;
+}
+
+.label {
+  height: 104rpx;
+  display: flex;
+  align-items: center;
+}
+
+.label .txts {
+  background: #fff;
+  border-top-right-radius: 160rpx;
+  border-top-left-radius: 160rpx;
+  border-bottom-right-radius: 160rpx;
+  border-bottom-left-radius: 160rpx;
+  color: #e4774f;
+  padding: 4rpx 20rpx;
+  font-size: 26rpx;
+}
+
+.button image {
+  width: 43rpx;
+  height: 43rpx;
+  padding-right:10rpx;
+}
+
+.button {
+  width: 400rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e16439;
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  margin-left: -200rpx;
+  border-radius:10rpx;
+  font-size:32rpx;
+  border-top-right-radius: 200rpx;
+  border-top-left-radius: 200rpx;
+  border-bottom-right-radius: 200rpx;
+  border-bottom-left-radius: 200rpx;
+  color:#fff;
+}

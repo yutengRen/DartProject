@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/homeIndex/homeIndex",
+    "pages/my/my",
+    "pages/my/register/register",
+    "pages/my/price/price",
+    "pages/my/price/recharge/recharge",
+    "pages/my/integral/integral",
+    "pages/my/order/order",
+    "pages/Ewn/Ewn",
+    "pages/index/index",
+    "pages/home/home",
+    "pages/list/list",
+    "pages/start/start",
+    "pages/pay/pay",
+    "pages/accredit/accredit",
+    "pages/refund/refund",
+    "pages/return/return",
+    "pages/continue/continue",
+    "pages/data/data",
+    "pages/history/history",
+    "pages/gamestar/gamestar",
+    "pages/rule/rule",
+    "pages/result/result",
+    "pages/venue/venue"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息将用于确定您和健身场馆的距离"
+    }
+  }
+}

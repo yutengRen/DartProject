@@ -1,0 +1,16 @@
+<!--pages/my/price/recharge/recharge.wxml-->
+<view class="layout">
+  <view class="main">
+    <view bindtap='btnIndex' data-index="0" class="{{index=='0'? 'active':''}}">￥30</view>
+    <view bindtap='btnIndex' data-index="1" class="{{index=='1'? 'active':''}}">￥50</view>
+    <view bindtap='btnIndex' data-index="2" class="{{index=='2'? 'active':''}}">￥100</view>
+    <view bindtap='btnIndex' data-index="3" class="{{index=='3'? 'active':''}}">￥200</view>
+    <view bindtap='btnIndex' data-index="4" class="{{index=='4'? 'active':''}}">￥400</view>
+    <view bindtap='btnIndex' data-index="5" class="{{index=='5'? 'active':''}}">￥600</view>
+  </view>
+
+  <view class="btn" bindtap='btnMake'>
+  
+  充值</view>
+
+</view>

@@ -1,0 +1,19 @@
+<!--pages/history/history.wxml-->
+<view class="container">
+  <view wx:if="{{array.length==null? true:false}}" style="text-align:center;;margin:100px auto 0;font-size:36rpx;color:#666">暂无历史纪录...</view>
+  <checkbox-group bindchange="checkboxChange">
+    <label class="list" wx:for="{{array}}" wx:key="{{index}}">
+      <view class="left">
+        <view>用户名: {{item.nickname}}</view>
+        <view>游戏名：{{item.gameName}}</view>
+        <view>机器编号：{{item.machineNum}}</view>
+        <view>游戏胜负：{{item.gameResult == 1 ? '负':'胜'}}</view>
+        <view>游戏开始时间：{{item.time}}</view>
+      </view>
+    </label>
+  </checkbox-group>
+</view>
+<view id="bg"></view>
+
+
+<view id="bg"></view>

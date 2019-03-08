@@ -1,0 +1,57 @@
+/* pages/Ewn/Ewn.wxss */
+
+page {
+  padding-top: 100rpx;
+}
+
+.Box {
+  width: 688rpx;
+  height: 342rpx;
+  border-radius: 10rpx;
+  margin: 0rpx auto;
+  position: relative;
+  background: #d75d34;
+  border: 1px solid transparent;
+}
+
+.head {
+  width: 122rpx;
+  height: 122rpx;
+  position: absolute;
+  left: 50%;
+  top: -76rpx;
+  margin-left: -68rpx;
+}
+
+.head image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 10rpx solid #fff;
+  border-radius: 50%;
+}
+
+.code {
+  margin-top:90rpx;
+  color:#fff;
+}
+
+.code view {
+  height:58rpx;
+  text-align: center;
+}
+
+.box{
+  border-top:1px solid #df7955;
+  width:632rpx;
+  margin:34rpx auto 0;
+  height:100rpx;
+  display:flex;
+  align-items: center;
+  justify-content:space-between;
+  color:#fff;
+}
+
+
+
+

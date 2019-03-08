@@ -1,0 +1,18 @@
+<template name="nav">
+  <view class="tab" bindtap="{{style == '2'? 'goto':''}}">
+    <image src="/images/menu.png" wx:if="{{style == '0'? false:true}}"></image>
+    <image src="/images/menuT.png" wx:else></image>
+    <view class="{{style == '0'? 'active':''}}">设备</view>
+  </view>
+  <view class="tab" bindtap='Ewn'>
+    <view class="btn">
+      <image src="/images/code.png"></image>
+      <view>扫码</view>
+    </view>
+  </view>
+  <view class="tab" bindtap="{{style == '0'? 'user':''}}">
+    <image src="/images/user.png" wx:if="{{style == '2'? false:true}}"></image>
+    <image src="/images/userT.png" wx:else></image>
+    <view class="{{style == '2'? 'active':''}}">我的</view>
+  </view>
+</template>

@@ -1,0 +1,32 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="swiper">
+    <scroll-view scroll-x="{{false}}" style="height:100%;">
+      <view>
+        <image src="../../images/301.png"></image>
+      </view>
+      <view>
+        <image src="../../images/301.png"></image>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="gamesBlock">
+    <view class="gamesH">301游戏</view>
+    <view class="border"></view>
+  </view>
+  <view class="gamesRules">
+    游戏简介：每位选手起始为301分,选手积分随投掷得分而递减首先将分减为“0”者获胜,如10轮投掷完成后无选手将积分减为“0”则积分最低折获胜。游戏简介：每位选手起始为301分,选手积分随投掷得分而递减首先将分减为“0”者获胜,如10轮投掷完成后无选手将积分减为“0”则积分最低折获胜。
+  </view>
+  <view class="gamesPrice">
+    <view>每局费用：2元</view>
+  </view>
+  <view class="btnAction">
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">开始游戏</button>
+    <view wx:else>请升级微信版本</view>
+  </view>
+  <view class="btnActions" style="margin-top:30rpx;">
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfos">历史记录</button>
+    <view wx:else>请升级微信版本</view>
+  </view>
+</view>
+<view id="bg"></view>

@@ -1,0 +1,22 @@
+<!--pages/accredit/accredit.wxml-->
+<view class="container">
+  <view class="image">
+    <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542361772912&di=1261ce476ade82be34c890dd4f2afc1f&imgtype=0&src=http%3A%2F%2Fpic2.ooopic.com%2F12%2F48%2F54%2F34bOOOPIC25_1024.jpg"></image>
+  </view>
+  <view class="text">
+    飞镖机
+  </view>
+
+  <view class="border"></view>
+
+  <view class="list_text">即将登陆天意科技,请确认是本人操作</view>
+  <view class="list_texts">
+    <view></view>
+    <text decode='{{true}}'>&nbsp;&nbsp;即将使用你的账号登陆该应用</text>
+  </view>
+
+    <view class="btn">
+      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view wx:else>请升级微信版本</view>
+    </view>
+</view>

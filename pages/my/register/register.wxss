@@ -1,0 +1,63 @@
+/* pages/my/register/register.wxss */
+
+.logo {
+  width: 186rpx;
+  height: 186rpx;
+  margin: 120rpx auto 0;
+  background: #eaeaea;
+  border-radius: 50%;
+}
+
+.logo image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+}
+
+.txt {
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.Box {
+  width: 711rpx;
+  margin: 40rpx auto 0;
+}
+
+.plate_first {
+  width: 711rpx;
+  height: 88rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.plate_first input {
+  height: 100%;
+  font-size: 30rpx;
+}
+
+.plate_second {
+  width: 711rpx;
+  height: 88rpx;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+
+.plate_second input {
+  height: 100%;
+  flex: 1;
+  margin-right: 50rpx;
+  font-size: 30rpx;
+}
+
+.btn button {
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  background: #1aac19;
+  color: #fff;
+  margin-top: 100rpx;
+  font-size: 32rpx;
+}

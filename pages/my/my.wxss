@@ -1,0 +1,119 @@
+/* pages/my/my.wxss */
+@import '../template/tabbar.wxss';
+
+page{
+  width:100%;
+  height:100%;
+  background:#f6f6f5;
+}
+
+.layout{
+  background:#fefefe;
+}
+
+.message{
+  display:flex;
+  align-items: center;
+  height:160rpx;
+  border-bottom:2px solid #fcfbfb;
+  position:relative;
+  overflow: hidden;
+}
+
+.message .bgc{
+  width:200rpx;
+  height:200rpx;
+ background: #e15f34;
+  position:absolute;
+  top:0;
+  right:-60rpx;
+  z-index:0;
+  transform:rotate(-20deg);
+  border-radius:10%;
+  opacity:0.5
+}
+
+.message .head{
+  width:86rpx;
+  height:86rpx;
+  margin-left:30rpx;
+  background:#eeeeee;
+  border-radius:50rpx;
+}
+
+.message .head image{
+  width:100%;
+  height:100%;
+  display:block;
+  border-radius:50%;
+}
+
+.head.headT{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headT image.img{
+  width:60rpx;
+  height:60rpx;
+
+}
+
+.message .name{
+  height:86rpx;
+  line-height: 86rpx;
+  flex:1;
+  margin-left:20rpx;
+}
+
+.name .names{
+  font-size:34rpx;
+  font-weight:600;
+  color:#141718;
+}
+
+.name .txts{
+  font-size:22rpx;
+  margin-top:10rpx;
+  color:#2e3132;
+}
+
+.Box{
+  padding:0 30rpx;
+}
+
+.Box .list{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  height:100rpx;
+}
+
+.list .left{
+  display:flex;
+  align-items: center;
+}
+
+.list .left .txts{
+  font-size:30rpx;
+}
+
+.list .left image{
+  width:34rpx;
+  height:34rpx;
+  display:block;
+}
+
+.list .left .icon{
+  height:36rpx;
+  margin-right:30rpx;
+}
+
+.list .right image{
+  width:28rpx;
+  height:28rpx;
+  display:block;
+}
+
+

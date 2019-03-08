@@ -1,0 +1,21 @@
+<!--pages/my/register/register.wxml-->
+<view class="layout">
+  <view class="logo">
+    <image mode='aspectFill' src="http://img4.imgtn.bdimg.com/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
+  </view>
+  <view class="txt">好享玩休闲运动平台</view>
+  <!-- <view class="Box">
+    <view class="plate_first">
+      <input placeholder='输入手机号码' bindinput='inputPhone'></input>
+    </view>
+    <view class="plate_second">
+      <input placeholder='输入验证码' bindinput='inputPassword'></input>
+      <view style="color:#da5d34" bindtap='verifyCode' wx:if="{{!s}}">{{text}}</view>
+      <view style="color:#8a8a8a;" wx:else>{{s}}秒后重发</view>
+    </view>
+  </view> -->
+
+  <view class="btn">
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信一键登录</button>
+  </view>
+</view>

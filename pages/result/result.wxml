@@ -1,0 +1,13 @@
+<!--pages/result/result.wxml-->
+<view class="layout">
+  <view class="content">
+    挑战成功
+  </view>
+  <view class="head">
+    <image mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/3QlOKWC8ADz9GQoSZF95rr0gvbftCiaVmmxEHjg8FK0FiaF6SQia9dFJkNE5vgJakWib86afPnKGGqiaiaLcr90cSicQg/132"></image>
+  </view>
+   <view class="name">LeeNingFeng</view>
+</view>
+<view class="over" bindtap='backHome'>返回首页</view>
+
+<view id="bg"></view>

@@ -1,0 +1,16 @@
+<!--pages/continue/continue.wxml-->
+<view class="containers">
+  <view class="gif">
+    <image src="/images/one.gif"></image>
+  </view>
+
+  <navigator url="/pages/list/list">
+    <view class="back" style="margin-top:300rpx;">继续游戏</view>
+  </navigator>
+  <view class="back" bindtap='over'>结束游戏</view>
+  <navigator url="/pages/home/home" open-type='reLaunch'>
+    <view class="back">返回首页</view>
+  </navigator>
+
+</view>
+<view id="bg"></view>

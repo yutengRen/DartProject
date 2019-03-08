@@ -1,0 +1,89 @@
+/* pages/pay/pay.wxss */
+page{
+  background:#000;
+}
+.container{
+  padding:0 30rpx;
+}
+
+.container .swiper{
+  width:688rpx;
+  height:334rpx;
+  margin:40rpx 0 50rpx; 
+  border-radius:4px;
+}
+
+.swiper image{
+  width:100%;
+  height:100%;
+}
+
+.container .List .first .right{
+  display:flex;
+  justify-content: space-between;
+  width:160rpx;
+  align-items: center;
+}
+
+.container .List .first .right view{
+  width:30rpx;
+  height:30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  background:#1966ff;
+}
+
+.container .List .plus{
+  width:688rpx;
+  height:98rpx;
+  background:#4a4a4a;
+  margin-bottom:10rpx;
+}
+
+.container .List .plus{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .List .plus .right.add{
+  display:flex;
+  width:184rpx;
+  justify-content: space-between;
+}
+
+.container .List .plus .right.add view{
+  width:40rpx;
+  height:40rpx;
+  background:#1a65ff;
+  line-height:40rpx;
+  text-align:center;
+  border-radius:2px;
+
+}
+
+.container .List .plus .left{
+  color:#fff;
+  margin-left:24rpx;
+}
+
+.container .List .plus .right{
+  color:#fff;
+  margin-right:24rpx;
+} 
+
+.container .btn button{
+  width:658rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #1966ff;
+  color: #fff;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  font-size: 30rpx;
+  margin-top:100rpx;
+}
+
+
