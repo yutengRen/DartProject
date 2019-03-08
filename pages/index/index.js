@@ -30,15 +30,45 @@ Page({
           array: res.data.result.dartGoodsList,
           userInfo: res.data.result.userInfo,
           code: res.data.result.dartDevice
-
         })
       },
       fail: (res) => {},
       complete: function(res) {},
     })
+  },
 
+  start(e) { //开始游戏-下单
 
-
+    const token = wx.getStorageSync('token')
+    wx.request({
+      url: app.globalData.url + '/wx/dartGame/createOrder',
+      data: {
+        goodsId: e.currentTarget.dataset.id,
+        deviceId: e.currentTarget.dataset.device,
+      },
+      header: {
+        'Content-Type': 'application/json',
+        Authorization: token
+      },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        wx.requestPayment({
+          timeStamp: res.data.result.timeStamp,
+          nonceStr: res.data.result.nonceStr,
+          package: res.data.result.package,
+          signType: 'MD5',
+          paySign: res.data.result.paySign,
+          success: (res) => {
+            console.log(res)
+          },
+          fail(res) {}
+        })
+      },
+      fail: (res) => {},
+      complete: function(res) {},
+    })
   },
 
 

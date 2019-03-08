@@ -26,12 +26,9 @@
             </navigator>
           </view>
         </view>
-        <view class="start">
-          <navigator url="/pages/gamestar/gamestar?goodsId={{item.goodsId}}&deviceId={{code.deviceId}}" hover-class='none'>
-            开始游戏
-          </navigator>
+        <view class="start" bindtap='start' data-id="{{item.goodsId}}" data-device="{{code.deviceId}}">
+          开始游戏
         </view>
-
       </view>
     </block>
   </view>

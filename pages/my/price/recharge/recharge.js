@@ -37,17 +37,7 @@ Page({
       complete: function(res) {},
     })
 
-    // wx.requestPayment({
-    //   timeStamp: ,
-    //   nonceStr: ,
-    //   package: ,
-    //   signType: 'MD5',
-    //   paySign: ,
-    //   success:(res)=> {
-    //     console.log(res)
-    //   },
-    //   fail(res) {}
-    // })
+   
   },
 
   /**

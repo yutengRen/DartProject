@@ -42,7 +42,7 @@ Page({
   initial() { //开始游戏
     const token = wx.getStorageSync('token')
     wx.request({
-      url: app.globalData.url + '/wx/pay/createOrder',
+      url: app.globalData.url + '/wx/dartGame/createOrder',
       data: {
         goodsId: this.data.goodsId,
         deviceId: this.data.deviceId,
@@ -57,8 +57,8 @@ Page({
       success: (res) => {
         console.log(res)
       },
-      fail: (res) => { },
-      complete: function (res) { },
+      fail: (res) => {},
+      complete: function(res) {},
     })
   },
 
