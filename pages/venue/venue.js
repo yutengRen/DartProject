@@ -11,17 +11,24 @@ Page({
     lng: '',
     lat: '',
     array: '',
-    phone: '020-***********',
+    stroe_name:''
   },
 
-  dial() { //拨打电话
-    wx.makePhoneCall({
-      phoneNumber: this.data.phone,
+  dial() { //导航
+  var that = this
+    wx.openLocation({
+      longitude:Number(that.data.lng),
+      latitude: Number(that.data.lat),
+      address:this.data.stroe_name
     })
   },
 
+
   btn() { //扫码
-    method.Ewn()
+    // method.Ewn()
+    wx.navigateTo({
+      url: '/pages/index/index',
+    })
   },
 
   initial() { //初始化
@@ -32,8 +39,10 @@ Page({
       responseType: 'text',
       success: (res) => {
         if (res.data.status == 200) {
+          console.log(res)
           this.setData({
-            array: res.data.result
+            array: res.data.result,
+            stroe_name: res.data.result.address
           })
           wx.hideLoading()
         } else {
@@ -57,6 +66,8 @@ Page({
       lng: options.lng,
       lat: options.lat
     })
+
+
 
     wx.showLoading({
       title: '正在加载...',

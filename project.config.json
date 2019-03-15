@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -94,10 +94,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "主页",
 					"pathName": "pages/index/index",
-					"query": ""
+					"query": "code=TY0001",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -162,7 +163,8 @@
 				{
 					"id": -1,
 					"name": "场馆",
-					"pathName": "pages/venue/venue"
+					"pathName": "pages/venue/venue",
+					"query": ""
 				}
 			]
 		}

@@ -1,6 +1,22 @@
 <!--pages/venue/venue.wxml-->
 <view class="layout">
   <view class="main">
+    <view class="scroll">
+      <scroll-view scroll-x="true" style="height:100%;">
+        <view class="img">
+          <image mode="aspectFill" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
+        </view>
+        <view class="img">
+          <image mode="aspectFill" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
+        </view>
+        <view class="img">
+          <image mode="aspectFill" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
+        </view>
+        <view class="img">
+          <image mode="aspectFill" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
+        </view>
+      </scroll-view>
+    </view>
     <view class="txtss">
       {{array.name}}
     </view>
@@ -11,10 +27,6 @@
         </view>
       </view>
       <view class="right">
-        <view class="popularity">
-          <view style="font-size:20rpx;">人气</view>
-          <view style="font-weight:600;font-size:32rpx">1K</view>
-        </view>
         <view class="consume">
           <view style="font-size:20rpx;">人均</view>
           <view style="font-weight:600;font-size:32rpx">￥30</view>

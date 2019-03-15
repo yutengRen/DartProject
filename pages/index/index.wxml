@@ -20,7 +20,7 @@
         <view class="gameName">
           <view class="name">{{item.title}}</view>
           <view class="data">
-            <view class="txt">游戏金额 :{{item.priceYuan}}元 ，押金 :{{item.total}}元</view>
+            <view class="txt">游戏金额 :{{item.priceYuan}}元 ，押金 :{{item.totalYuan}}元</view>
             <navigator url="/pages/rule/rule?goodsId={{item.goodsId}}" hover-class='none'>
               <view class="rule">游戏规则</view>
             </navigator>

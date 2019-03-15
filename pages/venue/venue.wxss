@@ -3,6 +3,35 @@
 .main {
   padding: 0 30rpx;
   background: #2b2e2f;
+  border:1px solid transparent;
+}
+
+.main .scroll {
+  width: 100%;
+  height: 279rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top:20rpx;
+  border:1px solid transparent;
+}
+
+.main .scroll .img {
+  width: 475rpx;
+  height: 279rpx;
+  border-radius: 12rpx;
+  display: inline-block;
+  margin-right:6rpx;
+}
+
+.main .scroll .img:last-child{
+  margin:0;
+}
+
+.main .scroll .img image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius:12rpx;
 }
 
 .txtss {
@@ -87,10 +116,10 @@
   display: block;
 }
 
-.describe{
-  padding:30rpx 0;
-  border-bottom:1px solid #404243;
-  color:#8b8b8b;
+.describe {
+  padding: 30rpx 0;
+  border-bottom: 1px solid #404243;
+  color: #8b8b8b;
 }
 
 .label {
@@ -113,7 +142,7 @@
 .button image {
   width: 43rpx;
   height: 43rpx;
-  padding-right:10rpx;
+  padding-right: 10rpx;
 }
 
 .button {
@@ -127,11 +156,11 @@
   bottom: 40rpx;
   left: 50%;
   margin-left: -200rpx;
-  border-radius:10rpx;
-  font-size:32rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
   border-top-right-radius: 200rpx;
   border-top-left-radius: 200rpx;
   border-bottom-right-radius: 200rpx;
   border-bottom-left-radius: 200rpx;
-  color:#fff;
+  color: #fff;
 }
