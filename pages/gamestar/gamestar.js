@@ -1,4 +1,5 @@
 // pages/gamestar/gamestar.js
+import method from '../template/tabbar.js';
 const app = getApp();
 Page({
 
@@ -7,13 +8,39 @@ Page({
    */
   data: {
     goodsId: '',
-    deviceId: ''
+    deviceId: '',
+    code: '' //机器码
   },
 
   over() { //结束比赛
-    wx.redirectTo({
-      url: '/pages/result/result',
+    const token = wx.getStorageSync('token');
+    wx.request({
+      url: app.globalData.url + '/wx/dartGame/end/' + this.data.code,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: token
+      },
+      method: 'PUT',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        console.log(res)
+        if (res.data.status == 200) {
+          method.tost('返回失败');
+          wx.redirectTo({
+            url: '/pages/result/result',
+          })
+        } else {
+          method.tost(res.data.msg);
+        }
+      },
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试');
+      },
+      complete: function(res) {},
     })
+
+
   },
 
   // initial() { //开始游戏
@@ -39,39 +66,38 @@ Page({
   // },
 
 
-  initial() { //开始游戏
-    const token = wx.getStorageSync('token')
-    wx.request({
-      url: app.globalData.url + '/wx/dartGame/createOrder',
-      data: {
-        goodsId: this.data.goodsId,
-        deviceId: this.data.deviceId,
-      },
-      header: {
-        'Content-Type': 'application/json',
-        Authorization: token
-      },
-      method: 'POST',
-      dataType: 'json',
-      responseType: 'text',
-      success: (res) => {
-        console.log(res)
-      },
-      fail: (res) => {},
-      complete: function(res) {},
-    })
-  },
+  // initial() { //开始游戏
+  //   const token = wx.getStorageSync('token')
+  //   wx.request({
+  //     url: app.globalData.url + '/wx/dartGame/createOrder',
+  //     data: {
+  //       goodsId: this.data.goodsId,
+  //       deviceId: this.data.deviceId,
+  //     },
+  //     header: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: token
+  //     },
+  //     method: 'POST',
+  //     dataType: 'json',
+  //     responseType: 'text',
+  //     success: (res) => {
+  //       console.log(res)
+  //     },
+  //     fail: (res) => {},
+  //     complete: function(res) {},
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
     this.setData({
-      goodsId: options.goodsId,
-      deviceId: options.deviceId
+      code: options.code
     })
-    this.initial();
+
+
 
   },
 

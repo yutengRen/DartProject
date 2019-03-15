@@ -21,10 +21,7 @@ Page({
   },
 
   btn() { //扫码
-    // method.Ewn()
-    wx.redirectTo({
-      url: '/pages/index/index',
-    })
+    method.Ewn()
   },
 
   initial() { //初始化
@@ -34,12 +31,19 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res)
-        this.setData({
-          array: res.data.result
-        })
+        if (res.data.status == 200) {
+          this.setData({
+            array: res.data.result
+          })
+          wx.hideLoading()
+        } else {
+          method.tost('网络异常，请稍后再试');
+        }
+
       },
-      fail: (res) => {},
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试');
+      },
       complete: function(res) {},
     })
   },
@@ -53,7 +57,13 @@ Page({
       lng: options.lng,
       lat: options.lat
     })
-    this.initial();
+
+    wx.showLoading({
+      title: '正在加载...',
+      success: (res) => {
+        this.initial();
+      }
+    })
   },
 
   /**

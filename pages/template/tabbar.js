@@ -1,6 +1,6 @@
 const method = {
   Ewn() { //扫码
-    const token = wx.getStorageSync('token')
+    const token = wx.getStorageSync('token');
     if (token == "") {
       wx.navigateTo({
         url: '/pages/my/register/register',
@@ -9,25 +9,20 @@ const method = {
       wx.scanCode({
         onlyFromCamera: true,
         success: (res) => {
-          console.log(res);
+          wx.navigateTo({
+            url: '/pages/index/index?code=' + res.result,
+          })
+        },
+        fail: (res) => {
+
         }
       })
     }
   },
 
-  loginCheck() { //登录验证
-    const token = wx.getStorageSync('token');
-    if (token == '') {
-      wx.redirectTo({
-        url: '/pages/my/register/register',
-      })
-      return
-    }
-  },
-
-  tost() { //fail提示
+  tost(title) { //全局提示
     wx.showToast({
-      title: '网络异常，请稍后再试！',
+      title: title,
       icon: 'none',
       duration: 2000
     })

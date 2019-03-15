@@ -26,9 +26,9 @@
   </view>
   <view class="main">
     <block wx:for="{{arrayT}}" wx:key="{{index}}">
-    <navigator url="/pages/venue/venue?id={{item.id}}&lng={{item.lng}}&lat={{item.lat}}" hover-class='none'>
-      <view class="mainList">
-        <!-- <view class="swiper">
+      <navigator url="/pages/venue/venue?id={{item.id}}&lng={{item.lng}}&lat={{item.lat}}" hover-class='none'>
+        <view class="mainList">
+          <view class="swiper">
             <swiper>
               <block wx:for="{{imgUrls}}" wx:key="{{index}}">
                 <swiper-item>
@@ -36,24 +36,23 @@
                 </swiper-item>
               </block>
             </swiper>
-            <view class="popularity">
+            <!-- <view class="popularity">
               <view style="font-size:20rpx;">人气</view>
               <view style="font-weight:600;font-size:32rpx">1K</view>
             </view>
             <view class="consume">
               <view style="font-size:20rpx;">人均</view>
               <view style="font-weight:600;font-size:32rpx">￥30</view>
-            </view>
-          </view> -->
-
-        <view class="content">
-          <view class="toponymy">{{item.name}}</view>
-          <view class="txts">{{item.body}}</view>
-          <view class="address">{{item.address}}， {{item.distance}}km</view>
+            </view> -->
+          </view>
+          <view class="content">
+            <view class="toponymy">{{item.name}}</view>
+            <view class="txts">{{item.body}}</view>
+            <view class="address">{{item.address}}， {{item.distance}}km</view>
+          </view>
+          <view class="boder"></view>
         </view>
-        <view class="boder"></view>
-      </view>
-    </navigator>
+      </navigator>
     </block>
   </view>
 </view>

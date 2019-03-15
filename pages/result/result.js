@@ -9,8 +9,8 @@ Page({
   },
 
   backHome() {
-    wx.navigateBack({
-      delta: 1
+    wx.reLaunch({
+      url: '/pages/homeIndex/homeInex',
     })
   },
 

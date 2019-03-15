@@ -21,8 +21,15 @@ Page({
       responseType: 'text',
       success: (res) => {
         console.log(res)
+        if (res.data.status == 200) {
+          wx.hideLoading();
+        } else {
+          method.tost('网络异常，请稍后再试');
+        }
       },
-      fail: (res) => {},
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试');
+      },
       complete: function(res) {},
     })
   },
@@ -31,7 +38,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.initial();
+    wx.showLoading({
+      title: '',
+      success: (res) => {
+        this.initial();
+      }
+    })
   },
 
   /**

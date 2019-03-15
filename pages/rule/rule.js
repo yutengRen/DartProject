@@ -1,6 +1,6 @@
 // pages/rule/rule.js
+import method from '../template/tabbar.js';
 const app = getApp();
-var token = wx.getStorageSync('token')
 Page({
 
   /**
@@ -8,10 +8,11 @@ Page({
    */
   data: {
     goodsId: '',
-    array:'',
+    array: '',
   },
 
-  initial() { 
+  initial() {
+    const token = wx.getStorageSync('token');
     wx.request({
       url: app.globalData.url + '/wx/dartGame/' + this.data.goodsId,
       data: {
@@ -24,11 +25,18 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        this.setData({
-          array:res.data.result
-        })
+        if (res.data.status == 200) {
+          wx.hideLoading();
+          this.setData({
+            array: res.data.result
+          })
+        } else {
+          method.tost('网络异常，请稍后重试');
+        }
       },
-      fail: (res) => {},
+      fail: (res) => {
+        method.tost('网络异常，请稍后重试');
+      },
       complete: function(res) {},
     })
   },
@@ -41,7 +49,14 @@ Page({
     this.setData({
       goodsId: options.goodsId
     });
-    this.initial();
+
+    wx.showLoading({
+      title: '正在加载...',
+      success: (res) => {
+        this.initial();
+      }
+    })
+
   },
 
 

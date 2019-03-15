@@ -1,6 +1,6 @@
 // pages/my/integral/integral.js
+import method from '../../template/tabbar.js';
 const app = getApp()
-const token = wx.getStorageSync('token');
 Page({
 
   /**
@@ -11,6 +11,7 @@ Page({
   },
 
   initial() { //获取积分
+    const token = wx.getStorageSync('token');
     wx.request({
       url: app.globalData.url + "/wx/home/me",
       header: {
@@ -20,12 +21,17 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        this.setData({
-          array: res.data.result
-        })
-        console.log(res.data.result)
+        if (res.data.status == 200) {
+          this.setData({
+            array: res.data.result
+          })
+        } else {
+          method.tost('网络异常，请稍后再试！');
+        }
       },
-      fail: (res) => {},
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试！');
+      },
       complete: function(res) {},
     })
   },

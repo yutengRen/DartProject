@@ -1,4 +1,5 @@
 // pages/index/index.js
+import method from '../template/tabbar.js'
 const app = getApp();
 Page({
 
@@ -19,26 +20,33 @@ Page({
         Authorization: token
       },
       data: {
-        code: 'TY0001',
+        code: this.data.code,
       },
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res);
-        this.setData({
-          array: res.data.result.dartGoodsList,
-          userInfo: res.data.result.userInfo,
-          code: res.data.result.dartDevice
-        })
+        if (res.data.status == 200) {
+          wx.hideLoading();
+          wx.stopPullDownRefresh();
+          this.setData({
+            array: res.data.result.dartGoodsList,
+            userInfo: res.data.result.userInfo,
+            code: res.data.result.dartDevice
+          });
+
+        } else {
+          method.tost(res.data.msg)
+        }
       },
-      fail: (res) => {},
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试');
+      },
       complete: function(res) {},
     })
   },
 
   start(e) { //开始游戏-下单
-
     const token = wx.getStorageSync('token')
     wx.request({
       url: app.globalData.url + '/wx/dartGame/createOrder',
@@ -54,19 +62,29 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        wx.requestPayment({
-          timeStamp: res.data.result.timeStamp,
-          nonceStr: res.data.result.nonceStr,
-          package: res.data.result.package,
-          signType: 'MD5',
-          paySign: res.data.result.paySign,
-          success: (res) => {
-            console.log(res)
-          },
-          fail(res) {}
-        })
+        if (res.data.status == 200) {
+          wx.requestPayment({
+            timeStamp: res.data.result.timeStamp,
+            nonceStr: res.data.result.nonceStr,
+            package: res.data.result.packageValue,
+            signType: res.data.result.signType,
+            paySign: res.data.result.paySign,
+            success: (res) => {
+              wx.redirectTo({
+                url: '/pages/gamestar/gamestar?code=' + this.data.code.code,
+              })
+            },
+            fail: (res) => {
+              method.tost('支付失败');
+            }
+          })
+        } else {
+          method.tost('网络异常，请稍后再试');
+        }
       },
-      fail: (res) => {},
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试');
+      },
       complete: function(res) {},
     })
   },
@@ -77,7 +95,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.initial();
+    this.setData({
+      code:options.code
+    })
+    wx.showLoading({
+      title: '正在加载...',
+      success: (res) => {
+        this.initial();
+      }
+    })
+
   },
 
   /**
@@ -112,7 +139,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    wx.showLoading({
+      title: '正在加载...',
+      success: (res) => {
+        this.initial();
+      }
+    })
   },
 
   /**

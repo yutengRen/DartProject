@@ -1,6 +1,7 @@
 {
-  "backgroundTextStyle": "light",
+  "backgroundTextStyle": "dark",
   "navigationBarBackgroundColor": "#000",
   "navigationBarTitleText": "飞镖宗师",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true
 }

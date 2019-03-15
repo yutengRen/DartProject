@@ -1,4 +1,5 @@
 // pages/my/register/register.js
+import method from '../../template/tabbar.js';
 const app = getApp()
 Page({
   /**
@@ -80,6 +81,9 @@ Page({
 
   bindGetUserInfo(e) { //登录
     if (e.detail.errMsg == "getUserInfo:ok") { //授权成功
+      wx.showLoading({
+        title: '正在登录...',
+      })
       wx.login({
         success: (res) => {
           wx.request({
@@ -96,24 +100,32 @@ Page({
             dataType: 'json',
             responseType: 'text',
             success: (res) => {
-              wx.setStorageSync('token', res.data.result.token);
-              wx.redirectTo({
-                url: '/pages/homeIndex/homeIndex',
-              })
+              wx.hideLoading();
+              if (res.data.status == 200) {
+                wx.setStorageSync('token', res.data.result.token);
+                method.tost('登录成功');
+                setTimeout((res) => {
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                }, 1000)
+              } else {
+                method.tost('网络异常，请稍后重试')
+              }
             },
-            fail: (res) => {},
+            fail: (res) => {
+              method.tost('网络异常，请稍后重试');
+            },
             complete: function(res) {},
           })
         },
-        fail: (res) => {},
+        fail: (res) => {
+          method.tost('网络异常，请稍后重试');
+        },
         complete: function(res) {},
       })
     } else { //授权失败
-      wx.showToast({
-        title: '登录失败，请重新授权',
-        icon: 'none',
-        duration: 2000
-      })
+      method.tost('登录失败，请重新授权');
     }
   },
 

@@ -12,12 +12,24 @@ Page({
     array: '',
     longitude: '',
     latitude: '',
+    imgUrls:[
+      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg',
+      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg',
+    ]
   },
 
   user() { //个人中心跳转
-    wx.redirectTo({
-      url: '/pages/my/my',
-    })
+    const token = wx.getStorageSync('token');
+    if (token == "") {
+      wx.navigateTo({
+        url: '/pages/my/register/register',
+      })
+    } else {
+      wx.redirectTo({
+        url: '/pages/my/my',
+      })
+    }
+
   },
 
   Ewn() { //扫码
@@ -28,9 +40,6 @@ Page({
     this.setData({
       index: e.currentTarget.dataset.index
     })
-
-
-
   },
 
   initial() { //获取设备类型
@@ -40,43 +49,59 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        this.setData({
-          array: res.data.result,
-        })
-        wx.getLocation({ //获取地理位置
-          success: (res) => {
-            this.setData({
-              longitude: res.longitude,
-              latitude: res.latitude,
-              loactionHide: true
-            })
-            wx.request({
-              url: app.globalData.url + '/wx/circle/list',
-              data: {
-                deviceType: 1,
-                lng: this.data.longitude,
-                lat: this.data.latitude
-              },
-              method: 'GET',
-              dataType: 'json',
-              responseType: 'text',
-              success: (res) => {
-                this.setData({
-                  arrayT: res.data.result
-                })
-              },
-              fail: (res) => {},
-              complete: function(res) {},
-            })
-          },
-          fail: (res) => {
-            this.setData({
-              locationHide: true
-            })
-          }
-        })
+        if (res.data.status == 200) {
+          this.setData({
+            array: res.data.result,
+          })
+          wx.getLocation({ //获取地理位置
+            success: (res) => {
+              this.setData({
+                longitude: res.longitude,
+                latitude: res.latitude,
+                loactionHide: true
+              })
+              wx.request({
+                url: app.globalData.url + '/wx/circle/list',
+                data: {
+                  deviceType: 1,
+                  lng: this.data.longitude,
+                  lat: this.data.latitude
+                },
+                method: 'GET',
+                dataType: 'json',
+                responseType: 'text',
+                success: (res) => {
+                  if (res.data.status == 200) {
+                    wx.hideLoading()
+                    wx.stopPullDownRefresh();
+                    this.setData({
+                      arrayT: res.data.result
+                    })
+                  } else {
+                    method.tost('网络异常，请稍后重试！');
+                  }
+                },
+                fail: (res) => {
+                  method.tost('网络异常，请稍后重试！');
+                },
+                complete: function(res) {},
+              })
+            },
+            fail: (res) => {
+              method.tost('获取定位失败！')
+              this.setData({
+                locationHide: true
+              })
+            }
+          })
+        } else {
+          method.tost(res.data.msg)
+        }
+
       },
-      fail: (res) => {},
+      fail: (res) => {
+        method.tost('网络异常，请稍后重试！');
+      },
       complete: function(res) {},
     })
   },
@@ -92,6 +117,9 @@ Page({
           latitude: res.latitude
         })
         that.initial();
+      },
+      fail: (res) => {
+        method.tost('网络异常，请稍后重试！');
       }
     })
   },
@@ -110,7 +138,9 @@ Page({
               })
               this.initial()
             },
-            fail: (res) => {}
+            fail: (res) => {
+              method.tost('网络异常，请稍后重试！ gde0');
+            }
           })
         }
       }
@@ -121,8 +151,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // method.loginCheck(); //登录验证
-    this.initial();
+    wx.showLoading({
+      title: '正在加载...',
+      success: (res) => {
+        this.initial();
+      }
+    })
+
   },
 
   /**
@@ -157,7 +192,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    wx.showLoading({
+      title: '正在加载...',
+      success: (res) => {
+        this.initial();
+      }
+    })
   },
 
   /**

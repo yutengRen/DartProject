@@ -22,6 +22,7 @@ Page({
   },
 
   initial() { //获取个人信息
+    const token = wx.getStorageSync('token');
     wx.request({
       url: app.globalData.url + "/wx/home/me",
       header: {
@@ -31,13 +32,19 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res)
-        this.setData({
-          array: res.data.result
-        })
+        if (res.data.status == 200) {
+          wx.hideLoading();
+          wx.stopPullDownRefresh();
+          this.setData({
+            array: res.data.result
+          })
+        } else {
+          method.tost('网络异常，请稍后重试!');
+        }
+
       },
       fail: (res) => {
-        method.tost()
+        method.tost('网络异常，请稍后重试!');
       },
       complete: function(res) {},
     })
@@ -47,8 +54,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-    this.initial();
+    wx.showLoading({
+      title: '正在加载',
+      success: (res) => {
+        this.initial();
+      }
+    })
   },
 
   /**
@@ -83,7 +94,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    wx.showLoading({
+      title: '正在加载',
+      success: (res) => {
+        this.initial();
+      }
+    })
   },
 
   /**

@@ -34,14 +34,4 @@
   </view>
 </view>
 
-<view class="loading" hidden="{{true}}">
-
-  <view class="Box">
-    <view class="load">
-      <image src="/images/loading.gif"></image>
-    </view>
-    <view style="color:#000;text-align:center;margin-top:20rpx;">加载中</view>
-  </view>
-</view>
-
 <view id="bg"></view>

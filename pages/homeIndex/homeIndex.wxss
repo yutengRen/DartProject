@@ -2,7 +2,7 @@
 @import '../template/tabbar.wxss';
 
 .layout {
-  padding-top:190rpx;
+  padding-top: 190rpx;
 }
 
 .Top {
@@ -36,7 +36,8 @@
   width: 38rpx;
   height: 40rpx;
   display: block;
-  padding-bottom: 5rpx;color: #ccc;
+  padding-bottom: 5rpx;
+  color: #ccc;
 }
 
 .position .icons image {
@@ -81,7 +82,7 @@
   line-height: 30rpx;
   font-size: 20rpx;
   display: inline-block;
-  padding-top:4rpx;
+  padding-top: 4rpx;
 }
 
 .list_plate image {
@@ -146,7 +147,7 @@
 }
 
 .mainList {
-  margin-bottom:20rpx;
+  margin-bottom: 20rpx;
 }
 
 .mainList .content {
@@ -162,6 +163,13 @@
   font-size: 26rpx;
   margin-top: 10rpx;
   color: #767676;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .mainList .content .address {
@@ -177,13 +185,13 @@
   background: #f8f8f8;
 }
 
-.locationHide{
-  width:200rpx;
-  height:80rpx;
+.locationHide {
+  width: 200rpx;
+  height: 80rpx;
   line-height: 80rpx;
-  text-align:center;
-  color:#fff;
-  background:#e15f34;
-  margin:360rpx auto 0;
-  border-radius:10rpx;
+  text-align: center;
+  color: #fff;
+  background: #e15f34;
+  margin: 360rpx auto 0;
+  border-radius: 10rpx;
 }
