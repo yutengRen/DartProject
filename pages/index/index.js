@@ -13,7 +13,7 @@ Page({
   },
 
   initial() { //扫码成功
-    const token = wx.getStorageSync('token')
+    const token = wx.getStorageSync('token');
     wx.request({
       url: app.globalData.url + '/wx/dartGame/model',
       header: {
@@ -66,8 +66,8 @@ Page({
       success: (res) => {
         if (res.data.status == 200) {
           app.globalData.data = res.data;
-          wx.navigateTo({
-            url: '/pages/index/order/order',
+          wx.redirectTo({
+            url: '/pages/index/order/order?codeId=' +  this.data.code.code,
           })
         } else {
           method.tost(res.data.msg);

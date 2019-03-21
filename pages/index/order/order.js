@@ -10,6 +10,7 @@ Page({
     s: '',
     array: '',
     flag: true,
+    codeId:''
   },
 
   cancelPay() { //取消支付
@@ -40,7 +41,7 @@ Page({
             paySign: res.data.result.paySign,
             success: (res) => {
               wx.redirectTo({
-                url: '/pages/gamestar/gamestar?code=' + this.data.code.code,
+                url: '/pages/gamestar/gamestar?code=' + this.data.codeId ,
               })
             },
             fail: (res) => {
@@ -62,13 +63,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(app.globalData.data.result.expireTime)
     this.setData({
       array: app.globalData.data.result,
-      s: app.globalData.data.result.expireTime
+      s: app.globalData.data.result.expireTime,
+      codeId: options.codeId
     })
 
-    let checks = setInterval(() => {
+    let checks = setInterval(() => { //剩余支付时间
       this.data.s--
         this.setData({
           s: this.data.s
@@ -77,7 +78,7 @@ Page({
         this.setData({
           flag: false
         })
-        clearInterval(checks)
+        clearInterval(checks);
       }
     }, 1000)
   },

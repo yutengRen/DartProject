@@ -1,5 +1,8 @@
 /* pages/homeIndex/homeIndex.wxss */
 @import '../template/tabbar.wxss';
+page{
+  padding-bottom:90rpx;
+}
 
 .layout {
   padding-top: 180rpx;

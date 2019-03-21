@@ -25,7 +25,6 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res)
         if (res.data.status == 200) {
 
         } else {
@@ -54,7 +53,6 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res)
         if (res.data.status == 200) {
           wx.hideLoading();
           this.setData({
@@ -150,6 +148,7 @@ Page({
           this.setData({
             array: this.data.array.concat(res.data.result.records),
             cursor: this.data.cursor + 1,
+            loading: true
           })
 
           if (res.data.result.records.length == "0") {
