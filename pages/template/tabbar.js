@@ -2,9 +2,7 @@ const method = {
   Ewn() { //扫码
     const token = wx.getStorageSync('token');
     if (token == "") {
-      wx.navigateTo({
-        url: '/pages/my/register/register',
-      })
+      
     } else {
       wx.scanCode({
         onlyFromCamera: true,
@@ -18,6 +16,10 @@ const method = {
         }
       })
     }
+  },
+
+  login() {
+    console.log(123)
   },
 
   tost(title) { //全局提示

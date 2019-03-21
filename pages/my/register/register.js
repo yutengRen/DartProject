@@ -89,9 +89,12 @@ Page({
           wx.request({
             url: app.globalData.url + "/wx/login/token",
             data: {
+              appId: app.globalData.appId,
               code: res.code,
-              nickName: e.detail.userInfo.nickName,
-              avatarUrl: e.detail.userInfo.avatarUrl,
+              rawData: e.detail.rawData,
+              signature: e.detail.signature,
+              encryptedData: e.detail.encryptedData,
+              iv: e.detail.iv,
             },
             header: {
               'Content-Type': 'application/json'

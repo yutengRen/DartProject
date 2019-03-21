@@ -1,4 +1,23 @@
 <!--pages/my/order/order.wxml-->
-<view class="layout" style="text-align:center;">
-  
+<view class="layout">
+  <view class="main">
+    <view class="first_plate">
+      <view class="code">订单ID：123456</view>
+      <view class="state">申请取消</view>
+    </view>
+    <view class="second_plate">
+      <view class="title">法属波利sl的肌肤欧非违反是微服私访金额是否就是浪费艾佛无阿偶分</view>
+      <view class="txt">周五到周日通用套餐</view>
+      <view class="date">
+        <view class="time">2018-10-10</view>
+        <view class="quantity">1</view>
+      </view>
+      <view class="remind">
+        <image src="/images/jingao.png"></image>
+        若超过七天不处理，订单将会自动确认取消
+      </view>
+    </view>
+  </view>
 </view>
+
+<view class="bgc"></view>

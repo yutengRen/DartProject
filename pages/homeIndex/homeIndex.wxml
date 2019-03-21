@@ -11,8 +11,8 @@
           <image src="/images/down.png"></image>
         </view>
       </view>
-      <view class="imgTxt" data-index="0" bindtap='selectMap' wx:if="{{showModal}}">图文模式</view>
-      <view class="imgTxt" data-index="1" bindtap='selectMap' wx:else>地图模式</view>
+      <view class="imgTxt" data-index="0" bindtap='selectMap' wx:if="{{showModal}}">地图模式</view>
+      <view class="imgTxt" data-index="1" bindtap='selectMap' wx:else>图文模式</view>
     </view>
     <view class="scroll">
       <scroll-view scroll-x="true" style="height:100%;">
@@ -27,12 +27,9 @@
         </block>
       </scroll-view>
     </view>
+  </view>
 
-  </view>
-  <view class="main {{index==0? 'active':''}}">
-    <map id="myMap" show-location show-compass="true" scale="18" longitude="{{longitude}}" latitude="{{latitude}}"></map>
-  </view>
-  <view class="main {{index==1? 'active':''}}" >
+  <view class="main {{index==1? 'active':''}}">
     <block wx:for="{{arrayT}}" wx:key="{{index}}">
       <navigator url="/pages/venue/venue?id={{item.id}}&lng={{longitude}}&lat={{latitude}}" hover-class='none'>
         <view class="mainList">
@@ -63,10 +60,23 @@
       </navigator>
     </block>
   </view>
+
+  <map id="myMap" wx:if="{{index==0? true:false}}" style="height:77.1vh" show-location show-compass="true" scale="13" longitude="{{longitude}}" latitude="{{latitude}}"></map>
 </view>
 
 <view class="locationHide" bindtap='anewLocation' hidden="{{!locationHide}}"> 获取定位 </view>
 
-<view class="tabbar">
-  <template is="nav" data="{{style:'0'}}" />
+<view class="window" hidden="{{hideModal}}">
+  <view class="bg" animation="{{ani}}" bindtap='hideModel'></view>
+  <view class="box bottom-pos" animation="{{animationData}}">
+    <view class="logo">
+      <image mode='aspectFill' src="http://img4.imgtn.bdimg.com/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
+    </view>
+    <view class="title">好享玩休闲运动平台</view>
+    <view class="btnss">
+      <button open-type="getUserInfo" class="button" bindgetuserinfo="bindGetUserInfo">微信一键登录</button>
+    </view>
+  </view>
 </view>
+
+<template is="nav" data="{{style:'0'}}" />

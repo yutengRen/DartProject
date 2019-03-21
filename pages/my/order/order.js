@@ -22,8 +22,9 @@ Page({
       success: (res) => {
         if (res.data.status == 200) {
           wx.hideLoading();
+          console.log(res)
         } else {
-          method.tost('网络异常，请稍后再试');
+          method.tost(res.data.msg);
         }
       },
       fail: (res) => {

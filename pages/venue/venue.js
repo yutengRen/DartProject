@@ -11,15 +11,15 @@ Page({
     lng: '',
     lat: '',
     array: '',
-    stroe_name:''
+    stroe_name: ''
   },
 
   dial() { //导航
-  var that = this
+    var that = this
     wx.openLocation({
-      longitude:Number(that.data.lng),
+      longitude: Number(that.data.lng),
       latitude: Number(that.data.lat),
-      address:this.data.stroe_name
+      address: this.data.stroe_name
     })
   },
 
@@ -39,14 +39,13 @@ Page({
       responseType: 'text',
       success: (res) => {
         if (res.data.status == 200) {
-          console.log(res)
           this.setData({
             array: res.data.result,
             stroe_name: res.data.result.address
           })
           wx.hideLoading()
         } else {
-          method.tost('网络异常，请稍后再试');
+          method.tost(res.data.msg);
         }
 
       },
@@ -66,8 +65,6 @@ Page({
       lng: options.lng,
       lat: options.lat
     })
-
-
 
     wx.showLoading({
       title: '正在加载...',

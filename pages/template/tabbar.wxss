@@ -1,7 +1,3 @@
-page {
-    padding-bottom: 98rpx;
-}
-
 .tabbar {
   width: 100%;
   height: 98rpx;
@@ -13,11 +9,11 @@ page {
   justify-content:space-around;
   align-items: center;
   color: #000;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0px -1px 2px -2px #ccc;
+  background: rgba(255, 255, 255,0.9);
+  border-top:1px solid #f8f8f8;
 }
 
-.tab image {
+.tab cover-image {
   width: 40rpx;
   height: 40rpx;
 }
@@ -40,7 +36,7 @@ page {
   flex-direction: column;
 }
 
-.tab:nth-child(1)  view {
+.tab:nth-child(1)  cover-view {
   height: 34rpx;
   line-height: 42rpx;
   font-size: 20rpx;
@@ -54,7 +50,7 @@ page {
   flex-direction: column;
 }
 
-.tab:nth-child(3) view {
+.tab:nth-child(3) cover-view {
   height: 34rpx;
   line-height: 42rpx;
   font-size: 20rpx;
@@ -68,7 +64,7 @@ page {
   width: 444rpx;
 }
 
-.tab:nth-child(2)  image {
+.tab:nth-child(2)  cover-image {
   width: 43rpx;
   height: 43rpx;
 }
@@ -89,7 +85,7 @@ page {
   box-shadow: 0px 0px 4px 0px #da5d34;
 }
 
-.btn view {
+.btn cover-view {
   margin-left: 10rpx;
   height: 40rpx;
   line-height: 40rpx;

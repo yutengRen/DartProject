@@ -1,0 +1,43 @@
+<!--pages/index/order/order.wxml-->
+<view class="layout">
+  <view class="main">
+    <view class="time" style="color:#8a8a8a;">支付剩余时间：
+      <text style="color:#ff5a23;">60s</text>
+    </view>
+    <view class="price">￥88.00</view>
+    <view style="color:#8a8a8a;font-size:26rpx;">301游戏</view>
+  </view>
+  <view class="selectPay">
+    <view class="txt">支付方式 ：</view>
+    <checkbox-group bindchange="checkboxChange">
+      <!-- <label class="boxs">
+        <view class="list">
+          <image src="/images/yvpay.png"></image>
+          <view>余额支付</view>
+        </view>
+        <view>
+          <checkbox disabled="false"/>
+        </view>
+      </label> -->
+      <view class="boxs">
+        <view class="list">
+          <image src="/images/wxpay.png"></image>
+          <view>微信支付</view>
+        </view>
+        <view>
+          <checkbox disabled='false' checked="{{true}}" />
+        </view>
+      </view>
+    </checkbox-group>
+  </view>
+
+</view>
+
+<view class="Box">
+<view class="cancel">取消支付</view>
+  <view class="pay">
+    确认支付 ￥88.00
+  </view>
+</view>
+
+<view class="bgc"></view>

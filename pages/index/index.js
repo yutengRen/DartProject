@@ -46,46 +46,52 @@ Page({
     })
   },
 
-  start(e) { //开始游戏-下单
-    const token = wx.getStorageSync('token')
-    wx.request({
-      url: app.globalData.url + '/wx/dartGame/createOrder',
-      data: {
-        goodsId: e.currentTarget.dataset.id,
-        deviceId: e.currentTarget.dataset.device,
-      },
-      header: {
-        'Content-Type': 'application/json',
-        Authorization: token
-      },
-      method: 'POST',
-      dataType: 'json',
-      responseType: 'text',
-      success: (res) => {
-        if (res.data.status == 200) {
-          wx.requestPayment({
-            timeStamp: res.data.result.timeStamp,
-            nonceStr: res.data.result.nonceStr,
-            package: res.data.result.packageValue,
-            signType: res.data.result.signType,
-            paySign: res.data.result.paySign,
-            success: (res) => {
-              wx.redirectTo({
-                url: '/pages/gamestar/gamestar?code=' + this.data.code.code,
-              })
-            },
-            fail: (res) => {
-              method.tost('支付失败');
-            }
-          })
-        } else {
-          method.tost('网络异常，请稍后再试');
-        }
-      },
-      fail: (res) => {
-        method.tost('网络异常，请稍后再试');
-      },
-      complete: function(res) {},
+  // start(e) { //开始游戏-下单
+  //   const token = wx.getStorageSync('token')
+  //   wx.request({
+  //     url: app.globalData.url + '/wx/dartGame/createOrder',
+  //     data: {
+  //       goodsId: e.currentTarget.dataset.id,
+  //       deviceId: e.currentTarget.dataset.device,
+  //     },
+  //     header: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: token
+  //     },
+  //     method: 'POST',
+  //     dataType: 'json',
+  //     responseType: 'text',
+  //     success: (res) => {
+  //       if (res.data.status == 200) {
+  //         wx.requestPayment({
+  //           timeStamp: res.data.result.timeStamp,
+  //           nonceStr: res.data.result.nonceStr,
+  //           package: res.data.result.packageValue,
+  //           signType: res.data.result.signType,
+  //           paySign: res.data.result.paySign,
+  //           success: (res) => {
+  //             wx.redirectTo({
+  //               url: '/pages/gamestar/gamestar?code=' + this.data.code.code,
+  //             })
+  //           },
+  //           fail: (res) => {
+  //             method.tost('支付失败');
+  //           }
+  //         })
+  //       } else {
+  //         method.tost('网络异常，请稍后再试');
+  //       }
+  //     },
+  //     fail: (res) => {
+  //       method.tost('网络异常，请稍后再试');
+  //     },
+  //     complete: function(res) {},
+  //   })
+  // },
+
+  start(){
+    wx.navigateTo({
+      url: '/pages/index/order/order',
     })
   },
 

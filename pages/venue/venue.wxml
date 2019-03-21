@@ -46,9 +46,9 @@
       <view>{{array.body}}</view>
       <view style="padding-top:8rpx;">交通方式：地铁</view>
     </view>
-    <view class="label">
+    <!-- <view class="label">
       <view class="txts">{{array.remark}}</view>
-    </view>
+    </view> -->
   </view>
 </view>
 

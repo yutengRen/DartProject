@@ -3,7 +3,6 @@
   <view class="gif">
     <image src="/images/one.gif"></image>
   </view>
-
   <navigator url="/pages/list/list">
     <view class="back" style="margin-top:300rpx;">继续游戏</view>
   </navigator>
