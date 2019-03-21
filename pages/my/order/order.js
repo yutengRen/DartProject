@@ -1,28 +1,65 @@
 // pages/my/order/order.js
+import method from '../../template/tabbar.js'
 const app = getApp();
-var token = wx.getStorageSync('token')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    array: '',
+    cursor: 1,
+    loading: true,
+    flag: true,
+  },
 
+  cancel(e) { //取消订单
+    const token = wx.getStorageSync('token')
+    wx.request({
+      url: app.globalData.url + '/wx/sysOrder/' + e.currentTarget.dataset.id,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: token
+      },
+      method: 'PUT',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        console.log(res)
+        if (res.data.status == 200) {
+
+        } else {
+          method.tost(res.data.msg)
+        }
+      },
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试')
+      },
+      complete: function(res) {},
+    })
   },
 
   initial() { //获取订单信息
+    const token = wx.getStorageSync('token')
     wx.request({
       url: app.globalData.url + '/wx/home/order',
       header: {
         Authorization: token
       },
+      data: {
+        cursor: 1,
+        limit: 5,
+      },
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
+        console.log(res)
         if (res.data.status == 200) {
           wx.hideLoading();
-          console.log(res)
+          this.setData({
+            array: res.data.result.records
+          })
         } else {
           method.tost(res.data.msg);
         }
@@ -85,7 +122,50 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    const token = wx.getStorageSync('token');
+    if (!this.data.flag) {
+      this.setData({
+        loading: true
+      })
+    } else {
+      this.setData({
+        loading: false
+      })
+    }
+    wx.request({
+      url: app.globalData.url + '/wx/home/order',
+      header: {
+        Authorization: token
+      },
+      data: {
+        cursor: this.data.cursor,
+        limit: 5,
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        if (res.data.status == 200) {
+          wx.hideLoading();
+          this.setData({
+            array: this.data.array.concat(res.data.result.records),
+            cursor: this.data.cursor + 1,
+          })
 
+          if (res.data.result.records.length == "0") {
+            this.setData({
+              flag: false
+            });
+          }
+        } else {
+          method.tost(res.data.msg);
+        }
+      },
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试');
+      },
+      complete: function(res) {},
+    })
   },
 
   /**

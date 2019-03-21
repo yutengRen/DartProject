@@ -23,7 +23,15 @@
   border-bottom: 1px dotted #f4f5f8;
 }
 
-.first_plate .state {
+.date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 26rpx;
+  border-bottom: 1px dotted #f4f5f8;
+}
+
+.date .state {
   color: #999;
   background: rgba(238, 238, 238, 0.5);
   padding: 4rpx 20rpx;
@@ -33,7 +41,11 @@
   border-bottom-left-radius: 160rpx;
 }
 
-.second_plate {
+.second_plate .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted #f4f5f8;
   padding: 30rpx 26rpx;
 }
 
@@ -52,17 +64,94 @@
   align-items: center;
 }
 
+.third_plate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20rpx 30rpx;
+}
+
+.third_plate .cancel {
+  color: #999;
+  background: rgba(238, 238, 238, 0.5);
+  padding: 4rpx 20rpx;
+  border-top-right-radius: 160rpx;
+  border-top-left-radius: 160rpx;
+  border-bottom-right-radius: 160rpx;
+  border-bottom-left-radius: 160rpx;
+
+}
+
+.third_plate .pay {
+  color:white;
+  background:#ff5a23;
+  padding: 4rpx 20rpx;
+  border-top-right-radius: 160rpx;
+  border-top-left-radius: 160rpx;
+  border-bottom-right-radius: 160rpx;
+  border-bottom-left-radius: 160rpx;
+}
+
+
 .remind {
-  padding-top:20rpx;
+  padding-top: 20rpx;
   align-items: center;
   color: #ff5a23;
-  font-size:24rpx;
+  font-size: 24rpx;
 }
 
 .remind image {
   width: 26rpx;
   height: 26rpx;
-  padding-right:5rpx;
-  margin-bottom:7rpx;
-  vertical-align:middle;
+  padding-right: 5rpx;
+  margin-bottom: 7rpx;
+  vertical-align: middle;
 }
+
+.one{
+  color:#ff901b;
+  background:	rgba(231,139,31,0.5);
+}
+
+.two{
+  background:rgba(59,137,173,0.5);
+  color:#83d4fd;
+}
+
+.thir{
+  background:rgba(107,215,202,0.3);
+  color:#6bd7ca;
+}
+
+.loading {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.loading .icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx 0 30rpx;
+  animation: loading 1.2s linear infinite;
+}
+
+.loading .icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.loading .txts {
+  color: #999;
+}
+
+@keyframes loading {
+  form {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+

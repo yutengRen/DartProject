@@ -21,7 +21,56 @@
       hideModal: true,
     },
 
-    hideModel() {
+    bindGetUserInfo(e) { //微信一键登录
+      this.hideModal()
+      if (e.detail.errMsg == "getUserInfo:ok") { //授权成功
+        wx.showLoading({
+          title: '正在登录...',
+        })
+        wx.login({
+          success: (res) => {
+            wx.request({
+              url: app.globalData.url + "/wx/login/token",
+              data: {
+                appId: app.globalData.appId,
+                code: res.code,
+                rawData: e.detail.rawData,
+                signature: e.detail.signature,
+                encryptedData: e.detail.encryptedData,
+                iv: e.detail.iv,
+              },
+              header: {
+                'Content-Type': 'application/json'
+              },
+              method: 'POST',
+              dataType: 'json',
+              responseType: 'text',
+              success: (res) => {
+                wx.hideLoading();
+                if (res.data.status == 200) {
+                  wx.setStorageSync('token', res.data.result.token);
+                  method.tost('登录成功');
+                } else {
+                  method.tost(res.data.msg)
+                }
+              },
+              fail: (res) => {
+                method.tost('网络异常，请稍后再试');
+              },
+              complete: function(res) {},
+            })
+          },
+          fail: (res) => {
+            method.tost('网络异常，请稍后重试');
+          },
+          complete: function(res) {},
+        })
+      } else { //授权失败
+        method.tost('登录失败，请重新授权');
+      }
+    },
+
+    hideModel() { //隐藏遮罩层
       this.hideModal()
     },
 
@@ -99,25 +148,24 @@
     user() { //个人中心跳转
       const token = wx.getStorageSync('token');
       if (token == "") {
-        this.showModal()
+        this.showModal() //显示登录弹窗
       } else {
         wx.redirectTo({
           url: '/pages/my/my',
         })
       }
-
     },
 
     Ewn() { //扫码
       const token = wx.getStorageSync('token');
       if (token == '') {
-        this.showModal()
+        this.showModal() //显示登录弹窗
       } else {
         method.Ewn()
       }
     },
 
-    btnSelect(e) { //table选项
+    btnSelect(e) { //模式切换
       this.setData({
         index: e.currentTarget.dataset.index
       })

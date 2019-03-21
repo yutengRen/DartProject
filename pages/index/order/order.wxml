@@ -1,8 +1,11 @@
 <!--pages/index/order/order.wxml-->
 <view class="layout">
   <view class="main">
-    <view class="time" style="color:#8a8a8a;">支付剩余时间：
-      <text style="color:#ff5a23;">{{time}}</text>
+    <view class="time" style="color:#8a8a8a;" wx:if="{{flag}}">支付剩余时间：
+      <text style="color:#ff5a23;">{{s}}s</text>
+    </view>
+    <view class="time" style="color:#8a8a8a;" wx:else>
+      订单支付时间已过期
     </view>
     <view class="price">￥{{array.amountYuan}}元</view>
     <view style="color:#8a8a8a;font-size:26rpx;">{{array.orderDeviceGoodsList[0].title}}</view>
@@ -34,7 +37,7 @@
 </view>
 
 <view class="Box">
-<view class="cancel">取消支付</view>
+  <view class="cancel">取消支付</view>
   <view class="pay" bindtap='pay'>
     确认支付 ￥88.00
   </view>

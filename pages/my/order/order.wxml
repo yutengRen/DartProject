@@ -1,23 +1,37 @@
 <!--pages/my/order/order.wxml-->
 <view class="layout">
-  <view class="main">
-    <view class="first_plate">
-      <view class="code">订单ID：123456</view>
-      <view class="state">申请取消</view>
-    </view>
-    <view class="second_plate">
-      <view class="title">法属波利sl的肌肤欧非违反是微服私访金额是否就是浪费艾佛无阿偶分</view>
-      <view class="txt">周五到周日通用套餐</view>
+  <block wx:for="{{array}}" wx:key="{{index}}">
+    <view class="main">
+      <view class="first_plate">
+        <view class="code">订单ID：{{item.id}}</view>
+      </view>
       <view class="date">
-        <view class="time">2018-10-10</view>
-        <view class="quantity">1</view>
+        <view class="time">{{item.gmtCreate}}</view>
+        <view class="state one" wx:if="{{item.state == 1}}">订单生成</view>
+        <view class="state" wx:elif="{{item.state == 2}}">订单取消</view>
+        <view class="state two" wx:elif="{{item.state == 3}}">订单已支付</view>
+        <view class="state thir" wx:elif="{{item.state == 4}}">订单完成</view>
+        <view class="state" wx:else>订单退款</view>
       </view>
-      <view class="remind">
-        <image src="/images/jingao.png"></image>
-        若超过七天不处理，订单将会自动确认取消
+      <view class="second_plate">
+        <view class="title">
+          <view style="font-size:32rpx;">{{item.name}}</view>
+          <view style="color:#ff5a23;font-weight:600">￥{{item.amountYuan}}</view>
+        </view>
+      </view>
+      <view class="third_plate">
+        <view class="cancel" bindtap='cancel' data-id="{{item.id}}" hidden="{{!item.state == 2 }}">取消订单</view>
+        <view class='pay' style="margin-left:20rpx;">申请退款</view>
       </view>
     </view>
+  </block>
+  <view class="loading" hidden='{{loading}}'>
+    <view class="icon">
+      <image src="/images/loading.png"></image>
+    </view>
+    <view class="txts">正在加载，请稍后...</view>
   </view>
+  <view style="color:#999;text-align:center;height:80rpx;line-height:80rpx;" hidden="{{flag}}">-- 内容已加载完 --</view>
 </view>
 
 <view class="bgc"></view>

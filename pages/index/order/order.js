@@ -7,12 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time:'60s',
+    s: '',
     array: '',
+    flag: true,
   },
 
+  cancelPay() { //取消支付
 
-  pay() { //开始游戏-下单
+  },
+
+  pay() { //确认支付
     const token = wx.getStorageSync('token')
     wx.request({
       url: app.globalData.url + '/wx/payOrder/unifiedOrder',
@@ -35,16 +39,16 @@ Page({
             signType: res.data.result.signType,
             paySign: res.data.result.paySign,
             success: (res) => {
-              // wx.redirectTo({
-              //   url: '/pages/gamestar/gamestar?code=' + this.data.code.code,
-              // })
+              wx.redirectTo({
+                url: '/pages/gamestar/gamestar?code=' + this.data.code.code,
+              })
             },
             fail: (res) => {
               method.tost('支付失败');
             }
           })
         } else {
-          method.tost('网络异常，请稍后再试');
+          method.tost(res.data.msg);
         }
       },
       fail: (res) => {
@@ -58,11 +62,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const array = app.globalData.data.result
-    console.log(array)
+    console.log(app.globalData.data.result.expireTime)
     this.setData({
-      array: array
+      array: app.globalData.data.result,
+      s: app.globalData.data.result.expireTime
     })
+
+    let checks = setInterval(() => {
+      this.data.s--
+        this.setData({
+          s: this.data.s
+        })
+      if (this.data.s == 0) {
+        this.setData({
+          flag: false
+        })
+        clearInterval(checks)
+      }
+    }, 1000)
   },
 
   /**
