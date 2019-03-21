@@ -13,7 +13,7 @@
       latitude: '',
       showModal: true,
       index: 1,
-      Height:'',
+      Height: '',
       imgUrls: [
         'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg',
         'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg',
@@ -21,7 +21,7 @@
       hideModal: true,
     },
 
-    hideModel(){
+    hideModel() {
       this.hideModal()
     },
 
@@ -62,27 +62,27 @@
     },
 
     //动画集
-    fadeIn: function () {
+    fadeIn: function() {
       this.animation.translateY(0).step()
       this.setData({
         animationData: this.animation.export() //动画实例的export方法导出动画数据传递给组件的animation属性
       })
     },
 
-    fadeDown: function () {
+    fadeDown: function() {
       this.animation.translateY(100).step()
       this.setData({
         animationData: this.animation.export(),
       })
     },
 
-    opacity: function () {
+    opacity: function() {
       this.animation.opacity(1).step()
       this.setData({
         ani: this.animation.export() //动画实例的export方法导出动画数据传递给组件的animation属性
       })
     },
-    opacitys: function () {
+    opacitys: function() {
       this.animation.opacity(0).step()
       this.setData({
         ani: this.animation.export(), //动画实例的export方法导出动画数据传递给组件的animation属性
@@ -109,7 +109,12 @@
     },
 
     Ewn() { //扫码
-      method.Ewn()
+      const token = wx.getStorageSync('token');
+      if (token == '') {
+        this.showModal()
+      } else {
+        method.Ewn()
+      }
     },
 
     btnSelect(e) { //table选项

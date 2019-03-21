@@ -48,12 +48,13 @@ Page({
 
 
   start(e) { //游戏下单
+  console.log(e)
     const token = wx.getStorageSync('token')
     wx.request({
       url: app.globalData.url + '/wx/dartGame/createOrder',
       data: {
         goodsId: e.currentTarget.dataset.id,
-        deviceId: e.currentTarget.dataset.deviceId,
+        deviceId: e.currentTarget.dataset.device,
       },
       header: {
         'Content-Type': 'application/json',
