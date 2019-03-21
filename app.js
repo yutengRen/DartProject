@@ -6,6 +6,7 @@ App({
   globalData: {
     userInfo: null,
     openid: null,
+    data:'',
     id: '',
     appId:'wxd6cf371dbe9f5906',
     // url: 'https://feibiao.ty-gz.com/share-wx',

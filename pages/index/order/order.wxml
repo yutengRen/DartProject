@@ -2,10 +2,10 @@
 <view class="layout">
   <view class="main">
     <view class="time" style="color:#8a8a8a;">支付剩余时间：
-      <text style="color:#ff5a23;">60s</text>
+      <text style="color:#ff5a23;">{{time}}</text>
     </view>
-    <view class="price">￥88.00</view>
-    <view style="color:#8a8a8a;font-size:26rpx;">301游戏</view>
+    <view class="price">￥{{array.amountYuan}}元</view>
+    <view style="color:#8a8a8a;font-size:26rpx;">{{array.orderDeviceGoodsList[0].title}}</view>
   </view>
   <view class="selectPay">
     <view class="txt">支付方式 ：</view>
@@ -35,7 +35,7 @@
 
 <view class="Box">
 <view class="cancel">取消支付</view>
-  <view class="pay">
+  <view class="pay" bindtap='pay'>
     确认支付 ￥88.00
   </view>
 </view>
