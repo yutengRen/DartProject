@@ -1,5 +1,6 @@
 <!--pages/my/order/order.wxml-->
 <view class="layout">
+  <view wx:if="{{array}}" class="tost">暂无订单信息</view>
   <block wx:for="{{array}}" wx:key="{{index}}">
     <view class="main">
       <view class="first_plate">
@@ -31,7 +32,7 @@
     </view>
     <view class="txts">正在加载，请稍后...</view>
   </view>
-  <view style="color:#999;text-align:center;height:80rpx;line-height:80rpx;" hidden="{{flag}}">-- 订单已全部加载完毕 --</view>
+  <view style="color:#999;text-align:center;height:80rpx;line-height:80rpx;" hidden="{{flag}}">-- 已全部加载完毕 --</view>
 </view>
 
 <view class="bgc"></view>

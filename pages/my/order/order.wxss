@@ -1,5 +1,11 @@
 /* pages/my/order/order.wxss */
 
+.tost{
+  text-align: center;
+  color:#8a8a8a;
+  margin-top:200rpx;
+}
+
 .bgc {
   width: 100%;
   height: 100%;

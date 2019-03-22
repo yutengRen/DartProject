@@ -48,7 +48,6 @@ Page({
 
 
   start(e) { //游戏下单
-  console.log(e)
     const token = wx.getStorageSync('token')
     wx.request({
       url: app.globalData.url + '/wx/dartGame/createOrder',
@@ -67,14 +66,14 @@ Page({
         if (res.data.status == 200) {
           app.globalData.data = res.data;
           wx.redirectTo({
-            url: '/pages/index/order/order?codeId=' +  this.data.code.code,
+            url: '/pages/index/order/order?codeId=' + this.data.code.code,
           })
         } else {
           method.tost(res.data.msg);
         }
       },
       fail: (res) => {
-        method.tost('')
+        method.tost('网络异常，请重新再试！')
       },
       complete: function(res) {},
     })
