@@ -37,7 +37,7 @@
 </view>
 
 <view class="Box">
-  <view class="cancel">取消支付</view>
+  <view class="cancel" bindtap='cancelPay'>取消支付</view>
   <view class="pay" bindtap='pay'>
     确认支付 ￥{{array.amountYuan}}
   </view>

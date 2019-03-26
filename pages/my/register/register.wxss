@@ -1,63 +1,57 @@
-/* pages/my/register/register.wxss */
+.top_plate {
+  background: #3ecd26;
+  height: 300rpx;
+  border: 1px solid transparent;
+}
 
 .logo {
-  width: 186rpx;
-  height: 186rpx;
-  margin: 120rpx auto 0;
-  background: #eaeaea;
-  border-radius: 50%;
+  width: 134rpx;
+  height: 120rpx;
+  margin: 45rpx auto 0;
 }
 
 .logo image {
   width: 100%;
   height: 100%;
   display: block;
-  border-radius: 50%;
 }
 
-.txt {
+.top_plate .txt {
   text-align: center;
-  margin-top: 30rpx;
+  font-size: 34rpx;
+  color: white;
 }
 
-.Box {
-  width: 711rpx;
-  margin: 40rpx auto 0;
+.top_plate .txts {
+  text-align: center;
+  color: white;
+  margin-top:30rpx;
+  font-size:24rpx;
 }
 
-.plate_first {
-  width: 711rpx;
-  height: 88rpx;
-  border-bottom: 1px solid #ccc;
+.main_plate .main{
+  width:646rpx;
+  margin:45rpx auto;
 }
 
-.plate_first input {
-  height: 100%;
-  font-size: 30rpx;
+.main_plate .main .txt{
+  color:black;
 }
 
-.plate_second {
-  width: 711rpx;
-  height: 88rpx;
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  align-items: center;
+.main_plate .main .txts{
+  font-size:26rpx;
+  color:#818181;
+  margin-top:30rpx;
 }
 
-.plate_second input {
-  height: 100%;
-  flex: 1;
-  margin-right: 50rpx;
-  font-size: 30rpx;
+button::after{
+  border:none;
 }
 
-.btn button {
-  width: 600rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  border-radius: 10rpx;
-  background: #1aac19;
-  color: #fff;
-  margin-top: 100rpx;
-  font-size: 32rpx;
+.btn button{
+  margin-top:45rpx;
+  height:100rpx;
+  line-height:100rpx;
+  background:#1dab1b;
+  color:white;
 }

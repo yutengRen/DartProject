@@ -7,13 +7,7 @@ const method = {
           url: '/pages/index/index?code=' + res.result,
         })
       },
-      fail: (res) => {
-        wx.showToast({
-          title: '网络异常，请稍后再试',
-          duration: 2000,
-          icon: 'none'
-        })
-      }
+      fail: (res) => {}
     })
 
   },

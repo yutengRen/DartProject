@@ -1,6 +1,6 @@
 <!--pages/my/order/order.wxml-->
 <view class="layout">
-  <view wx:if="{{array}}" class="tost">暂无订单信息</view>
+  <view wx:if="{{array.length == 0}}" class="tost">暂无订单信息</view>
   <block wx:for="{{array}}" wx:key="{{index}}">
     <view class="main">
       <view class="first_plate">
@@ -8,10 +8,10 @@
       </view>
       <view class="date">
         <view class="time">{{item.gmtCreate}}</view>
-        <view class="state one" wx:if="{{item.state == 1}}">订单生成</view>
+        <view class="one" wx:if="{{item.state == 1}}">订单生成</view>
         <view class="state" wx:elif="{{item.state == 2}}">订单取消</view>
-        <view class="state two" wx:elif="{{item.state == 3}}">订单已支付</view>
-        <view class="state thir" wx:elif="{{item.state == 4}}">订单完成</view>
+        <view class="two" wx:elif="{{item.state == 3}}">订单已支付</view>
+        <view class="thir" wx:elif="{{item.state == 4}}">订单完成</view>
         <view class="state" wx:else>订单退款</view>
       </view>
       <view class="second_plate">
@@ -20,8 +20,8 @@
           <view style="color:#ff5a23;font-weight:600">￥{{item.amountYuan}}</view>
         </view>
       </view>
-      <view class="third_plate">
-        <view class="cancel" bindtap='cancel' data-id="{{item.id}}" hidden="{{!item.state == 2 }}">取消订单</view>
+      <view class="third_plate" hidden="{{item.state == 4}}">
+        <view class="cancel" bindtap='cancel' data-id="{{item.id}}" hidden="{{item.state != 1}}">取消订单</view>
         <view class='pay' style="margin-left:20rpx;">申请退款</view>
       </view>
     </view>

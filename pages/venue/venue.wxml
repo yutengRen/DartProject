@@ -26,12 +26,12 @@
           <image src="/images/fb.png"></image>
         </view>
       </view>
-      <view class="right">
+      <!-- <view class="right">
         <view class="consume">
           <view style="font-size:20rpx;">人均</view>
           <view style="font-weight:600;font-size:32rpx">￥30</view>
         </view>
-      </view>
+      </view> -->
     </view>
     <view class="message">
       <view class="left">
@@ -44,7 +44,7 @@
     </view>
     <view class="describe">
       <view>{{array.body}}</view>
-      <view style="padding-top:8rpx;">交通方式：地铁</view>
+      <!-- <view style="padding-top:8rpx;">交通方式：地铁</view> -->
     </view>
     <!-- <view class="label">
       <view class="txts">{{array.remark}}</view>

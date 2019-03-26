@@ -7,7 +7,7 @@
 
 <view class="border">
   <view class="box"></view>
-  <image src="https://wx.qlogo.cn/mmopen/vi_32/3QlOKWC8ADz9GQoSZF95rr0gvbftCiaVmmxEHjg8FK0FiaF6SQia9dFJkNE5vgJakWib86afPnKGGqiaiaLcr90cSicQg/132"></image>
+  <image src="{{array.wxHeadImg}}"></image>
   
 </view>
 <view class="over" bindtap='over'>结束比赛</view>

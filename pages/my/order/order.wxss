@@ -115,16 +115,31 @@
 }
 
 .one{
+  padding: 4rpx 20rpx;
+  border-top-right-radius: 160rpx;
+  border-top-left-radius: 160rpx;
+  border-bottom-right-radius: 160rpx;
+  border-bottom-left-radius: 160rpx;
   color:#ff901b;
-  background:	rgba(231,139,31,0.5);
+  background:	rgba(231,139,31,0.1);
 }
 
 .two{
-  background:rgba(59,137,173,0.5);
+  padding: 4rpx 20rpx;
+  border-top-right-radius: 160rpx;
+  border-top-left-radius: 160rpx;
+  border-bottom-right-radius: 160rpx;
+  border-bottom-left-radius: 160rpx;
+  background:rgba(59,137,173,0.1);
   color:#83d4fd;
 }
 
 .thir{
+  padding: 4rpx 20rpx;
+  border-top-right-radius: 160rpx;
+  border-top-left-radius: 160rpx;
+  border-bottom-right-radius: 160rpx;
+  border-bottom-left-radius: 160rpx;
   background:rgba(107,215,202,0.3);
   color:#6bd7ca;
 }

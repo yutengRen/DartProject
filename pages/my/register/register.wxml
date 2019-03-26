@@ -1,21 +1,28 @@
 <!--pages/my/register/register.wxml-->
 <view class="layout">
-  <view class="logo">
-    <image mode='aspectFill' src="http://img4.imgtn.bdimg.com/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
+  <view class="top_plate">
+    <view class="logo">
+      <image src="/images/logo.png"></image>
+    </view>
+    <view class="txt">微信</view>
+    <view class="txts">亲，使用好享玩休闲运动平台，请先完成下面2步</view>
   </view>
-  <view class="txt">好享玩休闲运动平台</view>
-  <!-- <view class="Box">
-    <view class="plate_first">
-      <input placeholder='输入手机号码' bindinput='inputPhone'></input>
+  <view class="main_plate">
+    <view class="main">
+      <view class="txt">第一步：登陆后该应用获得以下权限</view>
+      <view class="txts">获得你的公开信息 (昵称、头像、地区以及性别)</view>
+      <view class="btn">
+        <button>授权</button>
+      </view>
     </view>
-    <view class="plate_second">
-      <input placeholder='输入验证码' bindinput='inputPassword'></input>
-      <view style="color:#da5d34" bindtap='verifyCode' wx:if="{{!s}}">{{text}}</view>
-      <view style="color:#8a8a8a;" wx:else>{{s}}秒后重发</view>
+  </view>
+  <view class="main_plate">
+    <view class="main">
+      <view class="txt">第二步：登陆后该应用获得以下权限</view>
+      <view class="txts">授权你的身份信息 (手机号) 用来登录</view>
+      <view class="btn">
+        <button >授权</button>
+      </view>
     </view>
-  </view> -->
-
-  <view class="btn">
-    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信一键登录</button>
   </view>
 </view>

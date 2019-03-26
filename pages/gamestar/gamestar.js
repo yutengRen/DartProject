@@ -9,7 +9,35 @@ Page({
   data: {
     goodsId: '',
     deviceId: '',
-    code: '' //机器码
+    code: '', //机器码,
+    array: '',
+  },
+
+  initial() { //获取个人信息
+    const token = wx.getStorageSync('token');
+    wx.request({
+      url: app.globalData.url + "/wx/home/me",
+      header: {
+        Authorization: token
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        if (res.data.status == 200) {
+          wx.hideLoading();
+          this.setData({
+            array: res.data.result
+          })
+        } else {
+          method.tost(res.data.msg);
+        }
+      },
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试!');
+      },
+      complete: function(res) {},
+    })
   },
 
   over() { //结束比赛
@@ -51,7 +79,12 @@ Page({
       code: options.code
     })
 
-
+    wx.showLoading({
+      title: '加载中...',
+      success: (res) => {
+        this.initial();
+      }
+    })
 
   },
 

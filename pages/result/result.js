@@ -10,7 +10,7 @@ Page({
 
   backHome() {
     wx.reLaunch({
-      url: '/pages/homeIndex/homeInex',
+      url: '/pages/homeIndex/homeIndex',
     })
   },
 

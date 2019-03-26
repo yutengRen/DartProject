@@ -65,7 +65,7 @@ Page({
       success: (res) => {
         if (res.data.status == 200) {
           app.globalData.data = res.data;
-          wx.redirectTo({
+          wx.navigateTo({
             url: '/pages/index/order/order?codeId=' + this.data.code.code,
           })
         } else {

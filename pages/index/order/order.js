@@ -10,15 +10,38 @@ Page({
     s: '',
     array: '',
     flag: true,
-    codeId:''
+    codeId: ''
   },
 
   cancelPay() { //取消支付
-
+    const token = wx.getStorageSync('token')
+    wx.request({
+      url: app.globalData.url + '/wx/sysOrder/' + app.globalData.data.result.id,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: token
+      },
+      method: 'PUT',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        if (res.data.status == 200) {
+          wx.navigateBack({
+            delta: 1
+          })
+        } else {
+          method.tost(res.data.msg)
+        }
+      },
+      fail: (res) => {
+        method.tost('网络异常，请重新再试！')
+      },
+      complete: function(res) {},
+    })
   },
 
   pay() { //确认支付
-    const token = wx.getStorageSync('token')
+    const token = wx.getStorageSync('token');
     wx.request({
       url: app.globalData.url + '/wx/payOrder/unifiedOrder',
       data: {
@@ -40,12 +63,55 @@ Page({
             signType: res.data.result.signType,
             paySign: res.data.result.paySign,
             success: (res) => {
-              wx.redirectTo({
-                url: '/pages/gamestar/gamestar?code=' + this.data.codeId ,
+              wx.request({
+                url: app.globalData.url + '/wx/dartGame/start',
+                data: {
+                  sysOrderId: app.globalData.data.result.id
+                },
+                header: {
+                  Authorization: token
+                },
+                method: 'GET',
+                dataType: 'json',
+                responseType: 'text',
+                success: (res) => {
+                  if (res.data.status == 200) {
+                    wx.redirectTo({
+                      url: '/pages/gamestar/gamestar?code=' + this.data.codeId,
+                    })
+                  } else {
+                    method.tost(res.data.msg)
+                  }
+                },
+                fail: (res) => {},
+                complete: function(res) {},
               })
             },
             fail: (res) => {
-              method.tost('支付失败');
+              wx.request({
+                url: app.globalData.url + '/wx/payOrder/queryOrder', //订单取消
+                header: {
+                  data: {
+                    SysOrderId: app.globalData.data.result.id
+                  },
+                  Authorization: token
+                },
+                method: 'GET',
+                dataType: 'json',
+                responseType: 'text',
+                success: (res) => {
+                  console.log(res)
+                  if (res.data.status == 200) {
+
+                  } else {
+                    method.tost(res.data.msg);
+                  }
+                },
+                fail: (res) => {
+                  method.tost('网络异常，请稍后再试');
+                },
+                complete: function(res) {},
+              })
             }
           })
         } else {

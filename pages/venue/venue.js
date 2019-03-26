@@ -24,11 +24,15 @@ Page({
   },
 
 
-  btn() { //扫码
-    // method.Ewn()
-    wx.navigateTo({
-      url: '/pages/index/index',
-    })
+  btn() {
+    const token = wx.getStorageSync('token');
+    if (token == '') {
+      wx.navigateTo({
+        url: '/pages/my/register/register',
+      })
+    } else {
+      method.Ewn()
+    }
   },
 
   initial() { //初始化

@@ -17,7 +17,7 @@
     <view class="scroll">
       <scroll-view scroll-x="true" style="height:100%;">
         <block wx:for="{{array}}" wx:key="{{index}}">
-          <view class="list {{index == '0'? 'bgColor':''}}" bindtap='btnSelect' data-index="0">
+          <view class="list {{index == '0'? 'bgColor':''}}" bindtap='btnSelect' data-index="{{item.value}}">
             <view class="list_plate">
               <image src="/images/feibiao.png" wx:if="{{index == 0? false:true}}"></image>
               <image src="/images/feibiao1.png" wx:else></image>
@@ -30,6 +30,7 @@
   </view>
 
   <view class="main {{index==1? 'active':''}}">
+    <view class="tost" wx:if="{{arrayT.length == 0}}">暂无商圈信息</view>
     <block wx:for="{{arrayT}}" wx:key="{{index}}">
       <navigator url="/pages/venue/venue?id={{item.id}}&lng={{longitude}}&lat={{latitude}}" hover-class='none'>
         <view class="mainList">
@@ -61,22 +62,9 @@
     </block>
   </view>
 
-  <map id="myMap" wx:if="{{index==0? true:false}}" style="height:77.1vh" show-location show-compass="true" scale="13" longitude="{{longitude}}" latitude="{{latitude}}"></map>
+  <map id="myMap" wx:if="{{index==0? true:false}}" style="height:{{Height-100}}px" show-location show-compass="true" scale="13" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map>
 </view>
 
 <view class="locationHide" bindtap='anewLocation' hidden="{{!locationHide}}"> 获取定位 </view>
-
-<view class="window" hidden="{{hideModal}}">
-  <view class="bg" animation="{{ani}}" bindtap='hideModel'></view>
-  <view class="box bottom-pos" animation="{{animationData}}">
-    <view class="logo">
-      <image mode='aspectFill' src="http://img4.imgtn.bdimg.com/it/u=198843797,3094335719&fm=26&gp=0.jpg"></image>
-    </view>
-    <view class="title">好享玩休闲运动平台</view>
-    <view class="btnss">
-      <button open-type="getUserInfo" class="button" bindgetuserinfo="bindGetUserInfo">微信一键登录</button>
-    </view>
-  </view>
-</view>
 
 <template is="nav" data="{{style:'0'}}" />
