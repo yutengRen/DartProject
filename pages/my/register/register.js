@@ -24,6 +24,42 @@ Page({
     })
   },
 
+
+  getPhoneNumber(e) { //获取用户手机号码
+  const token = wx.getStorageSync('token')
+    if (e.detail.errMsg == 'getPhoneNumber:ok') {
+      wx.request({
+        url: app.globalData.url + '/wx/login/phone',
+        data: {
+          appId: app.globalData.appId,
+          encryptedData: e.detail.encryptedData,
+          iv: e.detail.iv,
+        },
+        header: {
+          'Content-Type': 'application/json',
+          Authorization:token
+        },
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          console.log(res);
+        },
+        fail:(res)=>{
+          method.tost('授权取消')
+        },
+        complete: function(res) {},
+      })
+
+    } else {
+      wx.showToast({
+        title: "取消授权",
+        icon: 'none',
+        duration: 1500,
+      })
+    }
+  },
+
   // verifyCode() { //获取验证码
   //   const phoneReg = /^(13[0-9]|15[0-9]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/;
   //   if (this.data.phone == "") {

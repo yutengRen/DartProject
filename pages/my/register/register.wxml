@@ -21,7 +21,7 @@
       <view class="txt">第二步：登陆后该应用获得以下权限</view>
       <view class="txts">授权你的身份信息 (手机号) 用来登录</view>
       <view class="btn">
-        <button >授权</button>
+         <button hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
       </view>
     </view>
   </view>

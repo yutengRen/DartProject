@@ -43,7 +43,6 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res)
         if (res.data.status == 200) {
           this.setData({
             array: res.data.result,
