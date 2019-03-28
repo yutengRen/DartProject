@@ -45,7 +45,11 @@ Page({
   over() { //结束比赛
     const token = wx.getStorageSync('token');
     wx.request({
-      url: app.globalData.url + '/wx/dartGame/end/' + this.data.code,
+      url: app.globalData.url + '/wx/dartGame/end',
+      data:{
+        deviceCode: this.data.code,
+        sysOrderId: app.globalData.data.result.id
+      },
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: token

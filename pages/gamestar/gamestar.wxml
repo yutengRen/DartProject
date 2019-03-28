@@ -8,7 +8,6 @@
 <view class="border">
   <view class="box"></view>
   <image src="{{array.wxHeadImg}}"></image>
-  
 </view>
 <view class="over" bindtap='over'>结束比赛</view>
 <view class="bg" hidden="{{!showModal}}"></view>
