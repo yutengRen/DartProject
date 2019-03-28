@@ -55,3 +55,11 @@ button::after{
   background:#1dab1b;
   color:white;
 }
+
+.btns button{
+  margin-top:45rpx;
+  height:100rpx;
+  line-height:100rpx;
+  background:#98d19a;
+  color:#fffefd;
+}

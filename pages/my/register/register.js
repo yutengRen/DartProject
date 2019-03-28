@@ -10,6 +10,7 @@ Page({
     s: 0,
     phone: '',
     password: '',
+    flag: true
   },
 
   inputPhone(e) { //获取手机号码
@@ -26,8 +27,11 @@ Page({
 
 
   getPhoneNumber(e) { //获取用户手机号码
-  const token = wx.getStorageSync('token')
+    const token = wx.getStorageSync('token')
     if (e.detail.errMsg == 'getPhoneNumber:ok') {
+      wx.showLoading({
+        title: '',
+      })
       wx.request({
         url: app.globalData.url + '/wx/login/phone',
         data: {
@@ -37,15 +41,27 @@ Page({
         },
         header: {
           'Content-Type': 'application/json',
-          Authorization:token
+          Authorization: token
         },
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
         success: (res) => {
-          console.log(res);
+          wx.hideLoading()
+          if (res.data.status == 401) {
+            method.tost('请先完成第一步授权~')
+          } else if (res.data.status == 200) {
+            method.tost('登陆成功');
+            setTimeout((res) => {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000)
+          } else {
+            method.tost(res.data.msg);
+          }
         },
-        fail:(res)=>{
+        fail: (res) => {
           method.tost('授权取消')
         },
         complete: function(res) {},
@@ -59,6 +75,60 @@ Page({
       })
     }
   },
+
+
+
+  bindGetUserInfo(e) { //登录
+    if (e.detail.errMsg == "getUserInfo:ok") { //授权成功
+      wx.showLoading({
+        title: '',
+      })
+      wx.login({
+        success: (res) => {
+          wx.request({
+            url: app.globalData.url + "/wx/login/token",
+            data: {
+              appId: app.globalData.appId,
+              code: res.code,
+              rawData: e.detail.rawData,
+              signature: e.detail.signature,
+              encryptedData: e.detail.encryptedData,
+              iv: e.detail.iv,
+            },
+            header: {
+              'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            dataType: 'json',
+            responseType: 'text',
+            success: (res) => {
+              wx.hideLoading();
+              if (res.data.status == 200) {
+                wx.setStorageSync('token', res.data.result.token);
+                method.tost('成功授权');
+                this.setData({
+                  flag: false
+                })
+              } else {
+                method.tost(res.data.msg)
+              }
+            },
+            fail: (res) => {
+              method.tost('网络异常，请稍后重试');
+            },
+            complete: function(res) {},
+          })
+        },
+        fail: (res) => {
+          method.tost('网络异常，请稍后重试');
+        },
+        complete: function(res) {},
+      })
+    } else { //授权失败
+      method.tost('登录失败，请重新授权');
+    }
+  },
+
 
   // verifyCode() { //获取验证码
   //   const phoneReg = /^(13[0-9]|15[0-9]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/;
@@ -114,60 +184,6 @@ Page({
   //     })
   //   }
   // },
-
-  bindGetUserInfo(e) { //登录
-    if (e.detail.errMsg == "getUserInfo:ok") { //授权成功
-      wx.showLoading({
-        title: '正在登录...',
-      })
-      wx.login({
-        success: (res) => {
-          wx.request({
-            url: app.globalData.url + "/wx/login/token",
-            data: {
-              appId: app.globalData.appId,
-              code: res.code,
-              rawData: e.detail.rawData,
-              signature: e.detail.signature,
-              encryptedData: e.detail.encryptedData,
-              iv: e.detail.iv,
-            },
-            header: {
-              'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            dataType: 'json',
-            responseType: 'text',
-            success: (res) => {
-              wx.hideLoading();
-              if (res.data.status == 200) {
-                wx.setStorageSync('token', res.data.result.token);
-                method.tost('登录成功');
-                setTimeout((res) => {
-                  wx.navigateBack({
-                    delta: 1
-                  })
-                }, 1000)
-              } else {
-                method.tost('网络异常，请稍后重试')
-              }
-            },
-            fail: (res) => {
-              method.tost('网络异常，请稍后重试');
-            },
-            complete: function(res) {},
-          })
-        },
-        fail: (res) => {
-          method.tost('网络异常，请稍后重试');
-        },
-        complete: function(res) {},
-      })
-    } else { //授权失败
-      method.tost('登录失败，请重新授权');
-    }
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */

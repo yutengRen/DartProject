@@ -97,7 +97,7 @@
 					"id": 9,
 					"name": "主页",
 					"pathName": "pages/index/index",
-					"query": "code=TY0002",
+					"query": "code=TY0001",
 					"scene": null
 				},
 				{

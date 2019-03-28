@@ -21,6 +21,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
+        wx.hideLoading()
         if (res.data.status == 200) {
           this.setData({
             array: res.data.result
@@ -40,7 +41,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.initial();
+    wx.showLoading({
+      title: '',
+      success: (res) => {
+        this.initial();
+      }
+    })
+
   },
 
   /**
