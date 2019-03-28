@@ -14,6 +14,9 @@ Page({
   },
 
   cancelPay() { //取消支付
+    wx.showLoading({
+      title: '跳转中...',
+    })
     const token = wx.getStorageSync('token')
     wx.request({
       url: app.globalData.url + '/wx/sysOrder/' + app.globalData.data.result.id,
@@ -26,6 +29,7 @@ Page({
       responseType: 'text',
       success: (res) => {
         if (res.data.status == 200) {
+          wx.hideLoading()
           wx.navigateBack({
             delta: 1
           })
@@ -87,32 +91,7 @@ Page({
                 complete: function(res) {},
               })
             },
-            fail: (res) => {
-              wx.request({
-                url: app.globalData.url + '/wx/payOrder/queryOrder', //订单取消
-                header: {
-                  data: {
-                    SysOrderId: app.globalData.data.result.id
-                  },
-                  Authorization: token
-                },
-                method: 'GET',
-                dataType: 'json',
-                responseType: 'text',
-                success: (res) => {
-                  console.log(res)
-                  if (res.data.status == 200) {
-
-                  } else {
-                    method.tost(res.data.msg);
-                  }
-                },
-                fail: (res) => {
-                  method.tost('网络异常，请稍后再试');
-                },
-                complete: function(res) {},
-              })
-            }
+            fail: (res) => {}
           })
         } else {
           method.tost(res.data.msg);

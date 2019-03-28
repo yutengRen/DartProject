@@ -4,9 +4,9 @@
     挑战成功
   </view>
   <view class="head">
-    <image mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/3QlOKWC8ADz9GQoSZF95rr0gvbftCiaVmmxEHjg8FK0FiaF6SQia9dFJkNE5vgJakWib86afPnKGGqiaiaLcr90cSicQg/132"></image>
+    <image mode="aspectFill" src="{{array.wxHeadImg}}"></image>
   </view>
-   <view class="name">LeeNingFeng</view>
+   <view class="name">{{array.wxName}}</view>
 </view>
 <view class="over" bindtap='backHome'>返回首页</view>
 

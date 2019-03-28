@@ -55,6 +55,8 @@ Page({
       success: (res) => {
         if (res.data.status == 200) {
           wx.hideLoading();
+         var v = '[]';
+         console.log(v.length == null)
           this.setData({
             array: res.data.result.records
           })

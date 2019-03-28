@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showModal:true,
     goodsId: '',
     deviceId: '',
     code: '', //机器码,
@@ -27,7 +28,8 @@ Page({
         if (res.data.status == 200) {
           wx.hideLoading();
           this.setData({
-            array: res.data.result
+            array: res.data.result,
+            showModal:false
           })
         } else {
           method.tost(res.data.msg);

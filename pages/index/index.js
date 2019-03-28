@@ -48,6 +48,9 @@ Page({
 
 
   start(e) { //游戏下单
+    wx.showLoading({
+      title: '跳转中...',
+    })
     const token = wx.getStorageSync('token')
     wx.request({
       url: app.globalData.url + '/wx/dartGame/createOrder',
@@ -64,6 +67,7 @@ Page({
       responseType: 'text',
       success: (res) => {
         if (res.data.status == 200) {
+          wx.hideLoading()
           app.globalData.data = res.data;
           wx.navigateTo({
             url: '/pages/index/order/order?codeId=' + this.data.code.code,

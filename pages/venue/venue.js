@@ -11,7 +11,8 @@ Page({
     lng: '',
     lat: '',
     array: '',
-    stroe_name: ''
+    stroe_name: '',
+    imgUrl: 'https://share.ty-gz.com/',
   },
 
   dial() { //导航
@@ -42,10 +43,12 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
+        console.log(res)
         if (res.data.status == 200) {
           this.setData({
             array: res.data.result,
-            stroe_name: res.data.result.address
+            stroe_name: res.data.result.address,
+            arrayT:res.data.result.imgUrl
           })
           wx.hideLoading()
         } else {

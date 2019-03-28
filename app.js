@@ -8,7 +8,7 @@ App({
     openid: null,
     data:'',
     id: '',
-    appId:'wxd6cf371dbe9f5906',
+    appId:'wx07f1bc4349dac685',
     url: 'https://feibiao.ty-gz.com/share-wx',
     // url: 'http://192.168.123.61:9000'
   }

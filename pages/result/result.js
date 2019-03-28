@@ -1,11 +1,40 @@
 // pages/result/result.js
+import method from '../template/tabbar.js';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    array:'',
+  },
 
+  initial() { //获取个人信息
+    const token = wx.getStorageSync('token');
+    wx.request({
+      url: app.globalData.url + "/wx/home/me",
+      header: {
+        Authorization: token
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        if (res.data.status == 200) {
+          wx.hideLoading();
+          this.setData({
+            array: res.data.result
+          })
+        } else {
+          method.tost(res.data.msg);
+        }
+      },
+      fail: (res) => {
+        method.tost('网络异常，请稍后再试!');
+      },
+      complete: function (res) { },
+    })
   },
 
   backHome() {
@@ -18,7 +47,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    wx.showLoading({
+      title: '加载中...',
+      success: (res) => {
+        this.initial();
+      }
+    })
   },
 
   /**

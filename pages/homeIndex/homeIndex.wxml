@@ -30,17 +30,15 @@
   </view>
 
   <view class="main {{index==1? 'active':''}}">
-    <view class="tost" wx:if="{{arrayT.length == 0}}">暂无商圈信息</view>
+    <!-- <view class="tost" wx:if="{{arrayT.length == 0}}">暂无商圈信息</view> -->
     <block wx:for="{{arrayT}}" wx:key="{{index}}">
       <navigator url="/pages/venue/venue?id={{item.id}}&lng={{longitude}}&lat={{latitude}}" hover-class='none'>
         <view class="mainList">
           <view class="swiper">
             <swiper>
-              <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-                <swiper-item>
-                  <image mode="aspectFill" src="{{item}}" class="slide-image" />
-                </swiper-item>
-              </block>
+              <swiper-item>
+                <image mode="aspectFill" src="{{imgUrl+item.imgUrl}}" class="slide-image" />
+              </swiper-item>
             </swiper>
             <!-- <view class="popularity">
               <view style="font-size:20rpx;">人气</view>
@@ -60,9 +58,9 @@
         </view>
       </navigator>
     </block>
+    <view style="height:90rpx;"></view>
   </view>
-
-  <map id="myMap" wx:if="{{index==0? true:false}}" style="height:{{Height-100}}px" show-location show-compass="true" scale="13" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map>
+  <map id="myMap" wx:if="{{index==0? true:false}}" style="height:77.30vh" show-location show-compass="true" scale="13" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map>
 </view>
 
 <view class="locationHide" bindtap='anewLocation' hidden="{{!locationHide}}"> 获取定位 </view>

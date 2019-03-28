@@ -1,6 +1,6 @@
 <!--pages/my/order/order.wxml-->
 <view class="layout">
-  <view wx:if="{{array.length == 0}}" class="tost">暂无订单信息</view>
+  <view wx:if="{{array.length == 0}}" style="text-align:center;color:#8a8a8a;margin-top:200rpx;">暂无订单信息</view>
   <block wx:for="{{array}}" wx:key="{{index}}">
     <view class="main">
       <view class="first_plate">

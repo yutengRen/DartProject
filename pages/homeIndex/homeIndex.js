@@ -13,11 +13,8 @@
       showModal: true,
       index: 1,
       Height: '',
-      imgUrls: [
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg',
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=198843797,3094335719&fm=26&gp=0.jpg',
-      ],
       markers: '',
+      imgUrl: 'https://share.ty-gz.com/'
     },
 
     selectMap(e) { //浏览模式选择
@@ -30,7 +27,9 @@
     user() { //个人中心跳转
       const token = wx.getStorageSync('token');
       if (token == "") {
-        this.showModal() //显示登录弹窗
+        wx.navigateTo({
+          url: '/pages/my/register/register',
+        })
       } else {
         wx.redirectTo({
           url: '/pages/my/my',
@@ -74,8 +73,11 @@
 
     btnSelect(e) { //模式切换
       this.setData({
-        index: e.currentTarget.dataset.index
+        index: e.currentTarget.dataset.index,
+        showModal:true
       })
+
+      
 
       this.initial(); //获取商圈信息
       this.mapNumber(); //获取门店的地图经纬度
