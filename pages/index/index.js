@@ -35,6 +35,10 @@ Page({
             code: res.data.result.dartDevice
           });
 
+        } else if (res.data.status == 401) {
+          wx.redirectTo({
+            url: '/pages/my/register/register',
+          })
         } else {
           method.tost(res.data.msg)
         }

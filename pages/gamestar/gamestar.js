@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showModal:true,
+    showModal: true,
     goodsId: '',
     deviceId: '',
     code: '', //机器码,
@@ -29,7 +29,7 @@ Page({
           wx.hideLoading();
           this.setData({
             array: res.data.result,
-            showModal:false
+            showModal: false
           })
         } else {
           method.tost(res.data.msg);
@@ -46,7 +46,7 @@ Page({
     const token = wx.getStorageSync('token');
     wx.request({
       url: app.globalData.url + '/wx/dartGame/end',
-      data:{
+      data: {
         deviceCode: this.data.code,
         sysOrderId: app.globalData.data.result.id
       },
@@ -58,11 +58,14 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res)
         if (res.data.status == 200) {
           method.tost('返回失败');
           wx.redirectTo({
             url: '/pages/result/result',
+          })
+        } else if (res.data.status == 401) {
+          wx.redirectTo({
+            url: '/pages/my/register/register',
           })
         } else {
           method.tost(res.data.msg);

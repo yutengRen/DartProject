@@ -32,14 +32,18 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
+        wx.hideLoading();
+        wx.stopPullDownRefresh();
         if (res.data.status == 200) {
-          wx.hideLoading();
-          wx.stopPullDownRefresh();
           this.setData({
             array: res.data.result
           })
+        } else if (res.data.status == 401) {
+          wx.redirectTo({
+            url: '/pages/my/register/register',
+          })
         } else {
-          method.tost('网络异常，请稍后重试!');
+          method.tost(res.data.msg);
         }
 
       },

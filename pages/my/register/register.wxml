@@ -23,8 +23,11 @@
     <view class="main">
       <view class="txt">第二步：登陆后该应用获得以下权限</view>
       <view class="txts">授权你的身份信息 (手机号) 用来登录</view>
-      <view class="btn">
+      <view class="btn" wx:if="{{flags}}">
          <button hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
+      </view>
+      <view class="btns" wx:else>
+         <button hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">已授权</button>
       </view>
     </view>
   </view>

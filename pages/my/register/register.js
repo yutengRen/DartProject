@@ -10,7 +10,8 @@ Page({
     s: 0,
     phone: '',
     password: '',
-    flag: true
+    flag: true,
+    flags: true
   },
 
   inputPhone(e) { //获取手机号码
@@ -51,10 +52,13 @@ Page({
           if (res.data.status == 401) {
             method.tost('请先完成第一步授权~')
           } else if (res.data.status == 200) {
+            this.setData({
+              flags: false
+            })
             method.tost('登陆成功');
             setTimeout((res) => {
-              wx.navigateBack({
-                delta: 1
+              wx.reLaunch({
+                url: '/pages/homeIndex/homeIndex',
               })
             }, 1000)
           } else {
@@ -102,13 +106,29 @@ Page({
             dataType: 'json',
             responseType: 'text',
             success: (res) => {
+              console.log(res.data.result.phone)
               wx.hideLoading();
+
               if (res.data.status == 200) {
                 wx.setStorageSync('token', res.data.result.token);
                 method.tost('成功授权');
                 this.setData({
                   flag: false
                 })
+
+                const tost = res.data.result.phone
+                if (tost == '' || tost != undefined || tost != null) {
+                  this.setData({
+                    flags: false,
+                  })
+                  method.tost('登录成功');
+                  setTimeout((res) => {
+                    wx.reLaunch({
+                      url: '/pages/homeIndex/homeIndex',
+                    })
+                  }, 1000)
+                  return;
+                }
               } else {
                 method.tost(res.data.msg)
               }

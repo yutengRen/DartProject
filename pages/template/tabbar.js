@@ -9,7 +9,6 @@ const method = {
       },
       fail: (res) => {}
     })
-
   },
 
   tost(title) { //全局提示

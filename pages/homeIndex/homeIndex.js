@@ -27,7 +27,7 @@
     user() { //个人中心跳转
       const token = wx.getStorageSync('token');
       if (token == "") {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/my/register/register',
         })
       } else {

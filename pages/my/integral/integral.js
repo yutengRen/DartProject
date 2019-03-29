@@ -22,6 +22,11 @@ Page({
       responseType: 'text',
       success: (res) => {
         wx.hideLoading()
+        if (res.data.status == 401) {
+          wx.navigateTo({
+            url: '/pages/my/register/register',
+          })
+        }
         if (res.data.status == 200) {
           this.setData({
             array: res.data.result
